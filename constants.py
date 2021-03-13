@@ -8,7 +8,7 @@ WINDOW_SIZE = (WIDTH_SCREEN, HEIGHT_SCREEN)
 # environment
 TITLE = "El Gato Militar"
 GROUND = HEIGHT_SCREEN - 500
-POINTS = 10
+POINTS = 60
 
 # Colors
 GRAY                    = (100, 100, 100)
@@ -33,8 +33,12 @@ ROOT_PATH = os.path.dirname(__file__)
 RESOURCES_PATH = os.path.join(os.path.sep, ROOT_PATH, 'resources')
 SPRITES_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'sprites')
 CAT_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'cat')
+BACKGROUND_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'background')
 HUD_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'hud')
 POWER_UP_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'powerUp')
+
+#Background
+BACKGROUND_HOME = os.path.join(BACKGROUND_PATH, 'home.png')
 
 # Sprites
 # CAT

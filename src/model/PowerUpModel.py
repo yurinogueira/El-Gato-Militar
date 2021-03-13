@@ -6,11 +6,15 @@ import random
 
 class PowerUpModel:
     def __init__(self):
-        self.animation = Sprite(*const.POWER_UP_COIN)
+        self.__coinValue = 0
+        self.animation = self.__coinsImg()
         self.animation.set_total_duration(1000)
-        self.animation.set_position(random.randint(0+self.animation.width, const.WIDTH_SCREEN-self.animation.width), random.randint(-1550, 0))
+        self.__setPosition_x = self.__random_x()
+        self.__setPosition_y = random.randint(-50000, 0)
+        self.animation.set_position(self.__setPosition_x, self.__setPosition_y)
         self.x = self.animation.x
         self.y = self.animation.y
+        self.collided = False
 
     def collide(self, obj):
         l2 = Point(self.animation.x, self.animation.y)
@@ -28,13 +32,30 @@ class PowerUpModel:
             return 0
 
         self.animation.set_position(2000, 2000)
-        return 1
+        self.collided = True
+        return self.__coinValue
 
-    def move(self):
-        self.animation.y += 0.2
+    def move(self, speed):
+        self.animation.y += speed * 5
+        if self.animation.y > const.HEIGHT_SCREEN + self.animation.height and not self.collided:
+            self.animation = self.__coinsImg()
+            self.animation.set_total_duration(1000)
+            self.animation.set_position(self.__random_x(), random.randint(-50000, 0))
 
     def draw(self):
         self.animation.draw()
 
     def update(self):
         self.animation.update()
+
+    def __random_x(self):
+        return random.randint(0 + self.animation.width, const.WIDTH_SCREEN - self.animation.width)
+
+    def __coinsImg(self):
+        damage = random.randint(0, 11) % 5
+        if damage == 0:
+            self.__coinValue = -1
+            return Sprite(*const.POWER_UP_DAMAGE)
+        else:
+            self.__coinValue = 1
+            return Sprite(*const.POWER_UP_COIN)

@@ -5,7 +5,11 @@ from src.model.PowerUpModel import PowerUpModel
 import constants as CONST
 
 # Janela e HUD
+
+
+
 janela = Window(*CONST.WINDOW_SIZE)
+fundo = GameImage(CONST.BACKGROUND_HOME)
 
 bar_points = GameImage(CONST.POINTS_HUD)
 bar_points.set_position(janela.width - bar_points.width, 0)
@@ -15,6 +19,7 @@ bar_time.set_position(janela.width / 2 - bar_time.width / 2, 0)
 
 # Vars
 points = 0
+tempo = 60
 
 key_board = Window.get_keyboard()
 
@@ -37,17 +42,18 @@ def points_hud(amount):
 def time_hud():
     bar_time.draw()
     seconds = (janela.time_elapsed() / 1000) % 60
+    seconds = tempo - seconds
     font = pygame.font.Font(None, 64)
     text = font.render(str(int(seconds)), True, CONST.WHITE)
     text_rect = text.get_rect(center=(janela.width / 2, 58))
     janela.screen.blit(text, text_rect)
 
 
-def spawn_points():
+def spawn_points(speed):
     temp_points = 0
 
     for p in powers:
-        p.move()
+        p.move(speed)
         p.draw()
         temp_points += p.collide(cat)
         p.update()
@@ -57,9 +63,11 @@ def spawn_points():
 
 # Loop
 while True:
+
+    fundo.draw()
     SPEED_PER_FRAME = 120 * janela.delta_time()
 
-    janela.set_background_color((27, 215, 100))
+    #janela.set_background_color((27, 215, 100))
 
     if key_board.key_pressed("UP"):  # Direcional ^
         cat.jump(300)
@@ -73,7 +81,7 @@ while True:
     cat.move(SPEED_PER_FRAME)
 
     # POINTS
-    points += spawn_points()
+    points += spawn_points(SPEED_PER_FRAME)
 
     # DRAW
     cat.draw()

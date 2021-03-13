@@ -5,10 +5,10 @@ import constants as CONS
 
 class CatModel:
     def __init__(self):
-        self.limit = CONS.GROUND
+        self.ground_limit = CONS.GROUND
         self.animation = Sprite(*CONS.CAT_SPRITE_WALK)
         self.animation.set_total_duration(1000)
-        self.animation.set_position(0, self.limit)
+        self.animation.set_position(0, self.ground_limit)
         self.point = 0
         self.x = self.animation.x
         self.y = self.animation.y
@@ -16,7 +16,7 @@ class CatModel:
         self.anty = 0
 
     def jump(self, fps):
-        if self.animation.y == self.limit:
+        if self.animation.y == self.ground_limit:
             self.__change_sprite(*CONS.CAT_SPRITE_JUMP, 500, False)
             self.animation.y -= fps
 
@@ -31,10 +31,14 @@ class CatModel:
         self.animation.move_key_y(speed)
         self.animation.move_key_x(speed)
 
-        if self.animation.y < self.limit:
+        if self.animation.y < self.ground_limit:
             self.animation.y += speed * 5
-        if self.animation.y > self.limit:
-            self.animation.y = self.limit
+        if self.animation.y > self.ground_limit:
+            self.animation.y = self.ground_limit
+        if self.animation.x + self.animation.width > CONS.WIDTH_SCREEN:
+            self.animation.x = CONS.WIDTH_SCREEN - self.animation.width
+        if self.animation.x < 0:
+            self.animation.x = 0
 
     def draw(self):
         self.animation.draw()
