@@ -31,6 +31,7 @@ class CatModel:
         self.animation.move_key_y(speed)
         self.animation.move_key_x(speed)
 
+        #faz o personagem desce
         if self.animation.y < self.ground_limit:
             self.animation.y += speed * 5
         if self.animation.y > self.ground_limit:

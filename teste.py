@@ -1,15 +1,18 @@
 from PPlay.window import *
 from PPlay.gameimage import *
-from src.model.CatModel import CatModel
-from src.model.PowerUpModel import PowerUpModel
 import constants as CONST
 
-# Janela e HUD
 
+# Janela e HUD
+from src.scenes.HomeScene import HomeScene
+from src.scenes.BattleSceneFirst import BattleSceneFirst
 
 
 janela = Window(*CONST.WINDOW_SIZE)
-fundo = GameImage(CONST.BACKGROUND_HOME)
+scenes = {'Main': HomeScene(),
+          'Battle': BattleSceneFirst()}
+
+scene = scenes['Main']
 
 bar_points = GameImage(CONST.POINTS_HUD)
 bar_points.set_position(janela.width - bar_points.width, 0)
@@ -22,13 +25,6 @@ points = 0
 tempo = 60
 
 key_board = Window.get_keyboard()
-
-cat = CatModel()
-
-powers = []
-
-for i in range(CONST.POINTS):
-    powers.append(PowerUpModel())
 
 
 def points_hud(amount):
@@ -43,54 +39,34 @@ def time_hud():
     bar_time.draw()
     seconds = (janela.time_elapsed() / 1000) % 60
     seconds = tempo - seconds
+    if seconds == 0:
+        scene = scenes['Battle']
     font = pygame.font.Font(None, 64)
     text = font.render(str(int(seconds)), True, CONST.WHITE)
     text_rect = text.get_rect(center=(janela.width / 2, 58))
     janela.screen.blit(text, text_rect)
 
 
-def spawn_points(speed):
-    temp_points = 0
-
-    for p in powers:
-        p.move(speed)
-        p.draw()
-        temp_points += p.collide(cat)
-        p.update()
-
-    return temp_points
-
-
 # Loop
 while True:
 
-    fundo.draw()
+    #fundo.draw()
+
     SPEED_PER_FRAME = 120 * janela.delta_time()
 
-    #janela.set_background_color((27, 215, 100))
 
-    if key_board.key_pressed("UP"):  # Direcional ^
-        cat.jump(300)
-    # elif key_board.key_pressed("DOWN"):  # Direcional \/
-    #     print("Baixo!")
-    # elif key_board.key_pressed("LEFT"):  # Direcional
-    #     print("Direita!")
-    elif not cat.is_playing():
-        cat.walk()
+    scene.handle_event(SPEED_PER_FRAME, key_board)
+    scene.draw()
+    scene.update()
 
-    cat.move(SPEED_PER_FRAME)
-
-    # POINTS
-    points += spawn_points(SPEED_PER_FRAME)
-
-    # DRAW
-    cat.draw()
+    # TEM QUE REMOVER
+    points = scene.points
 
     # HUD
     points_hud(points)
     time_hud()
 
-    # UPDATE
-    cat.update()
-
     janela.update()
+
+
+
