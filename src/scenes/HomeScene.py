@@ -7,7 +7,7 @@ from src.model.PowerUpModel import PowerUpModel
 class HomeScene:
 
     @staticmethod
-    def __generatePoints():
+    def __generate_points():
         powers = []
         for i in range(POINTS):
             powers.append(PowerUpModel())
@@ -18,19 +18,19 @@ class HomeScene:
         self.fundo = GameImage(BACKGROUND_HOME)
         self.cat = CatModel()
         self.speed = 0
-        self.powers = self.__generatePoints()
+        self.powers = self.__generate_points()
         self.hud.set_time(60)
 
     def handle_event(self, speed, event):
         self.speed = speed
         if event.key_pressed("UP"):  # Direcional ^
             self.cat.jump(300)
-        # elif key_board.key_pressed("DOWN"):  # Direcional \/
-        #     print("Baixo!")
-        # elif key_board.key_pressed("LEFT"):  # Direcional
-        #     print("Direita!")
-        elif not self.cat.is_playing():
+        elif event.key_pressed("LEFT"):
+            self.cat.walk_fliped()
+        elif event.key_pressed("RIGHT"):
             self.cat.walk()
+        else:
+            self.cat.idle()
 
     def draw(self):
         self.fundo.draw()
