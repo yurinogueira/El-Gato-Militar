@@ -38,6 +38,10 @@ class HomeScene:
         self.hud.points_hud()
         self.hud.time_hud('Battle')
 
+        # A partir daqui é somente testes
+        self.hud.life_hud(2)
+        self.hud.special_hud(1)
+
     def update(self):
         self.hud.add_points(self.__spawn_points())
         self.cat.move(self.speed)

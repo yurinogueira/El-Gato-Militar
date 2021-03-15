@@ -35,9 +35,10 @@ SPRITES_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'sprites')
 CAT_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'cat')
 BACKGROUND_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'background')
 HUD_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'hud')
+HUD_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'hud')
 POWER_UP_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'powerUp')
 
-#Background
+# Background
 BACKGROUND_HOME = os.path.join(BACKGROUND_PATH, 'home.png')
 
 # Sprites
@@ -58,3 +59,8 @@ POWER_UP_DAMAGE = (os.path.join(POWER_UP_SPRITE_PATH, 'damage.png'), 1)
 # HUD
 POINTS_HUD = os.path.join(HUD_PATH, 'bar_points.png')
 TIME_HUD = os.path.join(HUD_PATH, 'bar_time.png')
+LIFE_HUD = os.path.join(HUD_PATH, 'bar_life.png')
+SPECIAL_HUD = os.path.join(HUD_PATH, 'bar_special.png')
+
+LIFE_POINTS = (os.path.join(HUD_SPRITE_PATH, 'life_value.png'), 3)
+SPECIAL_POINTS = (os.path.join(HUD_SPRITE_PATH, 'special_value.png'), 3)
