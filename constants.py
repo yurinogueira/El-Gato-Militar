@@ -32,7 +32,11 @@ GOLD                    = (255, 215,   0)
 ROOT_PATH = os.path.dirname(__file__)
 RESOURCES_PATH = os.path.join(os.path.sep, ROOT_PATH, 'resources')
 SPRITES_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'sprites')
+
 CAT_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'cat')
+AIRPLANE_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'airplanes')
+
+
 BACKGROUND_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'background')
 HUD_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'hud')
 HUD_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'hud')
@@ -40,6 +44,7 @@ POWER_UP_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'powerUp')
 
 # Background
 BACKGROUND_HOME = os.path.join(BACKGROUND_PATH, 'home.png')
+BACKGROUND_BATTLE1 = os.path.join(BACKGROUND_PATH, 'battle1.png')
 
 # Sprites
 # CAT
@@ -54,6 +59,21 @@ CAT_SPRITE_IDLE_FLIPED = (os.path.join(CAT_SPRITE_PATH, 'cat_idle_fliped.png'), 
 CAT_SPRITE_HURT = (os.path.join(CAT_SPRITE_PATH, 'cat_hurt.png'), 10)
 CAT_SPRITE_FALL = (os.path.join(CAT_SPRITE_PATH, 'cat_fall.png'), 8)
 CAT_SPRITE_DEAD = (os.path.join(CAT_SPRITE_PATH, 'cat_dead.png'), 10)
+
+# Sprites
+# AIRPLANE
+JET_BLUE_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'jet_blue_fly.png'), 2)
+JET_GREEN_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'jet_green_fly.png'), 2)
+JET_RED_FLY	= (os.path.join(AIRPLANE_SPRITE_PATH, 'jet_red_fly.png'), 2)
+JET_YELLOW_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'jet_yellow_fly.png'), 2)
+PLANE_BLUE_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_blue_fly.png'), 2)
+PLANE_PINK_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_pink_fly.png'), 2)
+PLANE_RED_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_red_fly.png'), 2)
+PLANE_YELLOW = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_yellow.png'), 2)
+PLUSJET_BLUE_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_blue_fly.png'), 2)
+PLUSJET_GREEN_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_green_fly.png'), 2)
+PLUSJET_RED_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_red_fly.png'), 2)
+PLUSJET_YELLOW_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_yellow_fly.png'), 2)
 
 # POWER-UP
 POWER_UP_COIN = (os.path.join(POWER_UP_SPRITE_PATH, 'coins.png'), 1)

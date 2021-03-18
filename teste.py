@@ -13,10 +13,10 @@ key_board = window.get_keyboard()
 
 scenes = {
     'Main': HomeScene(hud),
-    'Battle': BattleSceneFirst()
+    'Battle': BattleSceneFirst(hud)
 }
 
-scene = scenes['Main']
+scene = scenes['Battle']
 
 
 def change_scene(scene_key):
