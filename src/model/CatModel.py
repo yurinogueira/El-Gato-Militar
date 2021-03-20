@@ -1,8 +1,9 @@
 from PPlay.sprite import Sprite
 from constants import *
+from src.interfaces.GameObjectInterface import GameObjectInterface
 
 
-class CatModel:
+class CatModel(GameObjectInterface):
     def __init__(self):
         self.ground_limit = GROUND
         self.animation = Sprite(*CAT_SPRITE_IDLE)

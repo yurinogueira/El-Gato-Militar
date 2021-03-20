@@ -1,8 +1,9 @@
 from PPlay.sprite import Sprite
 from constants import *
+from src.interfaces.GameObjectInterface import GameObjectInterface
 
 
-class AirPlaneModel:
+class AirPlaneModel(GameObjectInterface):
 
     def __init__(self):
         self.animation = Sprite(*JET_BLUE_FLY)
@@ -23,18 +24,6 @@ class AirPlaneModel:
     def update(self):
         self.animation.update()
 
-    def up(self, fps):
-        self.animation.y -= fps
-
-    def down(self, fps):
-        self.animation.y += fps
-
-    def backward(self, fps):
-        self.animation.x -= fps
-
-    def forward(self, fps):
-        self.animation.x += fps
-
     def move(self, speed):
         self.animation.move_key_y(speed)
         self.animation.move_key_x(speed)
@@ -47,4 +36,16 @@ class AirPlaneModel:
             self.animation.x = WIDTH_SCREEN - self.animation.width
         if self.animation.x < 0:
             self.animation.x = 0
+
+    def up(self, fps):
+        self.animation.y -= fps
+
+    def down(self, fps):
+        self.animation.y += fps
+
+    def backward(self, fps):
+        self.animation.x -= fps
+
+    def forward(self, fps):
+        self.animation.x += fps
 

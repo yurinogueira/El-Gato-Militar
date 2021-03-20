@@ -1,10 +1,11 @@
 from PPlay.gameimage import *
 from constants import *
+from src.interfaces.SceneInteface import SceneInterface
 from src.model.CatModel import CatModel
 from src.model.PowerUpModel import PowerUpModel
 
 
-class HomeScene:
+class HomeScene(SceneInterface):
 
     @staticmethod
     def __generate_points():
@@ -35,12 +36,7 @@ class HomeScene:
     def draw(self):
         self.fundo.draw()
         self.cat.draw()
-        self.hud.points_hud()
-        self.hud.time_hud('Battle')
-
-        # A partir daqui é somente testes
-        self.hud.life_hud(2)
-        self.hud.special_hud(1)
+        self.hud.draw_with_time()
 
     def update(self):
         self.hud.add_points(self.__spawn_points())

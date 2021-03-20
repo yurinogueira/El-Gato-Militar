@@ -1,32 +1,36 @@
-from PPlay.gameimage import *
 from constants import *
+from src.factory.Hud import HudManager
+from src.interfaces.SceneInteface import SceneInterface
 from src.model.AirPlaneModel import AirPlaneModel
+from src.model.BackgroundModel import BackgroundModel
 
 
-class BattleSceneFirst:
+class BattleSceneFirst(SceneInterface):
     def __init__(self, hud):
         self.hud = hud
-        self.fundo = GameImage(BACKGROUND_BATTLE1)
+        self.background = BackgroundModel(BACKGROUND_BATTLE1)
         self.airplane = AirPlaneModel()
-        self.speed = 0
-        self.fps = 5
+        self.fps = 0
 
     def handle_event(self, speed, event):
-        self.speed = speed
+        self.fps = speed
         if event.key_pressed("UP"):  # Direcional ^
             self.airplane.up(self.fps)
-        elif event.key_pressed("DOWN"):
+        if event.key_pressed("DOWN"):
             self.airplane.down(self.fps)
-        elif event.key_pressed("RIGHT"):
+        if event.key_pressed("RIGHT"):
             self.airplane.forward(self.fps)
-        elif event.key_pressed("LEFT"):
+        if event.key_pressed("LEFT"):
             self.airplane.backward(self.fps)
 
+        self.background.move(self.fps)
+        self.airplane.move(self.fps)
+
     def draw(self):
-        self.fundo.draw()
+        self.background.draw()
         self.airplane.draw()
-        self.hud.points_hud()
+        self.hud.draw()
 
     def update(self):
-        self.airplane.move(self.speed)
+        self.background.update()
         self.airplane.update()
