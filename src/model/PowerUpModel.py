@@ -13,7 +13,6 @@ class PowerUpModel(GameObjectInterface):
         self.__setPosition_y = random.randint(-50000, 0)
         self.power.set_position(self.__setPosition_x, self.__setPosition_y)
 
-
     def draw(self):
         self.power.draw()
 

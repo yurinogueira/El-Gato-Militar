@@ -6,10 +6,10 @@ import PPlay
 class SceneInterface(ABC):
 
     @abstractmethod
-    def handle_event(self, speed: int, event: PPlay.keyboard.Keyboard): raise NotImplementedError
+    def handle_event(self, speed: int, event: PPlay.keyboard.Keyboard, scene: bool): raise NotImplementedError
 
     @abstractmethod
-    def draw(self): raise NotImplementedError
+    def draw(self, state: bool): raise NotImplementedError
 
     @abstractmethod
-    def update(self): raise NotImplementedError
+    def update(self, state: bool): raise NotImplementedError

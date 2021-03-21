@@ -9,6 +9,7 @@ WINDOW_SIZE = (WIDTH_SCREEN, HEIGHT_SCREEN)
 TITLE = "El Gato Militar"
 GROUND = HEIGHT_SCREEN - 400
 POINTS = 60
+TIME = 60
 
 # Colors
 GRAY                    = (100, 100, 100)
@@ -84,6 +85,12 @@ POINTS_HUD = os.path.join(HUD_PATH, 'bar_points.png')
 TIME_HUD = os.path.join(HUD_PATH, 'bar_time.png')
 LIFE_HUD = os.path.join(HUD_PATH, 'bar_life.png')
 SPECIAL_HUD = os.path.join(HUD_PATH, 'bar_special.png')
+PAUSE_HUD = os.path.join(HUD_PATH, 'button_pause.png')
+SHOP_HUD = os.path.join(HUD_PATH, 'button_shop.png')
+NORMAL_BUTTON = os.path.join(HUD_PATH, 'normal_button.png')
+ACTIVED_BUTTON = os.path.join(HUD_PATH, 'active_button.png')
+HOVER_BUTTON = os.path.join(HUD_PATH, 'hover_button.png')
+PAUSE_SCREEN = os.path.join(HUD_PATH, 'pause_screen.png')
 
 LIFE_POINTS = (os.path.join(HUD_SPRITE_PATH, 'life_value.png'), 3)
 SPECIAL_POINTS = (os.path.join(HUD_SPRITE_PATH, 'special_value.png'), 3)

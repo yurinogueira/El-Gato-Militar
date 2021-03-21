@@ -14,11 +14,12 @@ class HomeScene(SceneInterface):
         self.speed = 0
         self.power = PowerUpModel()
         self.listPower = self.power.generatesPoint(60)
-        self.hud.set_time(60)
         self.temp_points = 0
 
+    def handle_event(self, speed, event, state):
+        if not state:
+            return
 
-    def handle_event(self, speed, event):
         self.speed = speed
         if event.key_pressed("UP"):  # Direcional ^
             self.cat.jump(300)
@@ -34,14 +35,20 @@ class HomeScene(SceneInterface):
             if p.collide(self.cat):
                 self.temp_points += 1
 
-    def draw(self):
-        self.fundo.draw()
-        self.cat.draw()
-        self.hud.draw_with_time()
-        for p in self.listPower:
-            p.draw()
+    def draw(self, state):
+        if state:
+            self.fundo.draw()
+            for p in self.listPower:
+                p.draw()
 
-    def update(self):
+            self.cat.draw()
+
+        self.hud.draw_with_time(state)
+
+    def update(self, state):
+        if not state:
+            return
+
         self.hud.add_points(self.temp_points)
         self.cat.move(self.speed)
         self.cat.update()

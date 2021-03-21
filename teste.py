@@ -6,17 +6,17 @@ from src.factory.Hud import HudManager
 from src.scenes.HomeScene import HomeScene
 from src.scenes.BattleSceneFirst import BattleSceneFirst
 
+
+running = True
 window = Window(*WINDOW_SIZE)
 hud = HudManager(window)
-
-key_board = window.get_keyboard()
 
 scenes = {
     'Main': HomeScene(hud),
     'Battle': BattleSceneFirst(hud)
 }
 
-scene = scenes['Main']
+scene = scenes['Battle']
 
 
 def change_scene(scene_key):
@@ -24,12 +24,22 @@ def change_scene(scene_key):
     scene = scenes[scene_key]
 
 
+def change_state(state=True):
+    global running
+    running = state
+
+
+def get_state():
+    global running
+    return running
+
+
 # Loop
 while True:
-    SPEED_PER_FRAME = 120 * window.delta_time()
+    SPEED_PER_FRAME = 200 * window.delta_time()
 
-    scene.handle_event(SPEED_PER_FRAME, key_board)
-    scene.draw()
-    scene.update()
+    scene.handle_event(SPEED_PER_FRAME, window.get_keyboard(), running)
+    scene.draw(running)
+    scene.update(running)
 
     window.update()

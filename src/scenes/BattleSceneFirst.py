@@ -12,7 +12,10 @@ class BattleSceneFirst(SceneInterface):
         self.airplane = AirPlaneModel()
         self.fps = 0
 
-    def handle_event(self, speed, event):
+    def handle_event(self, speed, event, state):
+        if not state:
+            return
+
         self.fps = speed
         if event.key_pressed("UP"):  # Direcional ^
             self.airplane.up(self.fps)
@@ -26,11 +29,16 @@ class BattleSceneFirst(SceneInterface):
         self.background.move(self.fps)
         self.airplane.move(self.fps)
 
-    def draw(self):
-        self.background.draw()
-        self.airplane.draw()
+    def draw(self, state):
+        if state:
+            self.background.draw()
+            self.airplane.draw()
+
         self.hud.draw()
 
-    def update(self):
+    def update(self, state):
+        if not state:
+            return
+
         self.background.update()
         self.airplane.update()
