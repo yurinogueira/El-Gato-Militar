@@ -11,7 +11,7 @@ class LifeHud():
         self.bar.set_position(4, 0)
         self.value = Sprite(*LIFE_POINTS)
         self.value.set_position(-6, -10)
-        self.value.set_curr_frame(2)
+        self.value.set_curr_frame(1)
 
 
     def draw(self):

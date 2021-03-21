@@ -2,7 +2,7 @@ from PPlay.gameimage import *
 from constants import *
 from src.interfaces.SceneInteface import SceneInterface
 from src.model.CatModel import CatModel
-from src.model.PowerUpModel import PowerUpModel
+from src.itemgame.CoinModel import CoinModel
 
 
 class HomeScene(SceneInterface):
@@ -12,9 +12,9 @@ class HomeScene(SceneInterface):
         self.fundo = GameImage(BACKGROUND_HOME)
         self.cat = CatModel()
         self.speed = 0
-        self.power = PowerUpModel()
-        self.listPower = self.power.generatesPoint(60)
-        self.temp_points = 0
+        self.coin = CoinModel()
+        self.listPower = self.coin.generatesPoint(60)
+
 
     def handle_event(self, speed, event, state):
         if not state:
@@ -33,7 +33,7 @@ class HomeScene(SceneInterface):
         for p in self.listPower:
             p.move(self.speed)
             if p.collide(self.cat):
-                self.temp_points += 1
+                self.coin.points += 1
 
     def draw(self, state):
         if state:
@@ -49,7 +49,7 @@ class HomeScene(SceneInterface):
         if not state:
             return
 
-        self.hud.add_points(self.temp_points)
+        self.hud.add_points(self.coin.points)
         self.cat.move(self.speed)
         self.cat.update()
         for p in self.listPower:

@@ -11,7 +11,7 @@ class SpecialHud():
         self.bar.set_position(4, 76)
         self.value = Sprite(*SPECIAL_POINTS)
         self.value.set_position(-6, 65)
-        self.value.set_curr_frame(2)
+        self.value.set_curr_frame(1)
 
     def draw(self):
         self.bar.draw()

@@ -79,6 +79,8 @@ PLUSJET_YELLOW_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_yellow_fly.png
 # POWER-UP
 POWER_UP_COIN = (os.path.join(POWER_UP_SPRITE_PATH, 'coins.png'), 1)
 POWER_UP_DAMAGE = (os.path.join(POWER_UP_SPRITE_PATH, 'damage.png'), 1)
+POWER_UP_LIFE = (os.path.join(POWER_UP_SPRITE_PATH, 'life.png'), 1)
+POWER_UP_ENERGY = (os.path.join(POWER_UP_SPRITE_PATH, 'energy.png'), 1)
 
 # HUD
 POINTS_HUD = os.path.join(HUD_PATH, 'bar_points.png')
