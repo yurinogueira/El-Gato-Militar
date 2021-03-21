@@ -17,6 +17,6 @@ class PointHud:
         text.draw()
 
     def addPoint(self, amount):
-        self.points += amount
+        self.points = amount
 
 
