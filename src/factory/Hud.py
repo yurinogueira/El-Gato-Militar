@@ -8,6 +8,7 @@ from src.hud.MenuHud import MenuHud
 
 class HudManager:
     def __init__(self, window):
+        self.window = window
         self.point = PointHud(window)
         self.time = TimeHud(window)
         self.shop = ShopHud(window)
@@ -46,3 +47,6 @@ class HudManager:
 
     def lose_special(self):
         self.special.loseSpecial()
+
+    def get_window(self):
+        return self.window
