@@ -13,12 +13,12 @@ window = Window(*WINDOW_SIZE)
 hud = HudManager(window)
 
 scenes = {
-    'Main': MenuScene(hud),
     'Home': HomeScene(hud),
+    'Main': MenuScene(hud),
     'Battle': BattleSceneFirst(hud)
 }
 
-scene = scenes['Main']
+scene = scenes['Battle']
 
 
 def change_scene(scene_key='Main'):

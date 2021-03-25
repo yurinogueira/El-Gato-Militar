@@ -1,6 +1,7 @@
 from constants import *
 from src.interfaces.GameObjectInterface import GameObjectInterface
 from src.itemgame.ItemModel import ItemModel
+from src.model.AirPlaneModel import AirPlaneModel
 
 
 class LifeModel(GameObjectInterface):
@@ -22,18 +23,18 @@ class LifeModel(GameObjectInterface):
         self.lifeAnimation.update()
 
     def move(self, fps: int):
+        amplitude = 100
         if self.movimentation:
 
-            if self.lifeAnimation.y < self.original_y - 250:
-                self.lifeAnimation.y = self.original_y - 250
+            if self.lifeAnimation.y < self.original_y - amplitude:
+                self.lifeAnimation.y = self.original_y - amplitude
                 self.direction *= self.module
-            elif self.lifeAnimation.y > self.original_y + 250:
-                self.lifeAnimation.y = self.original_y + 250
+            elif self.lifeAnimation.y > self.original_y + amplitude:
+                self.lifeAnimation.y = self.original_y + amplitude
                 self.direction *= self.module
 
             self.lifeAnimation.y -= (fps / 2) * self.direction
             self.lifeAnimation.x -= (fps / 4) * 5
-
 
     def collide(self, obj):
         return self.life.collide(obj)

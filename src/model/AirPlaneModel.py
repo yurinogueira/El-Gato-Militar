@@ -1,22 +1,18 @@
 from PPlay.sprite import Sprite
 from constants import *
 from src.interfaces.GameObjectInterface import GameObjectInterface
+from src.itemgame.ShotModel import ShotModel
 
 
 class AirPlaneModel(GameObjectInterface):
 
-    def __init__(self):
-        self.animation = Sprite(*JET_BLUE_FLY)
+    def __init__(self, x=300, y=HEIGHT_SCREEN / 2, sprite=JET_BLUE_FLY):
+        self.animation = Sprite(*sprite)
         self.animation.set_loop(True)
         self.animation.set_total_duration(1000)
-        self.animation.set_position(0, HEIGHT_SCREEN / 2)
-        self.x = self.animation.x
-        self.y = self.animation.y
+        self.animation.set_position(x, y)
         self.ground_limit = HEIGHT_SCREEN - self.animation.height
-        self.point = 0
-        self.antx = 0
-        self.anty = 0
-        self.looking_to = True
+        self.shotModel = ShotModel(2000, 2000)
 
     def draw(self):
         self.animation.draw()
@@ -25,9 +21,6 @@ class AirPlaneModel(GameObjectInterface):
         self.animation.update()
 
     def move(self, speed):
-        self.animation.move_key_y(speed)
-        self.animation.move_key_x(speed)
-
         if self.animation.y < 0:
             self.animation.y = 0
         if self.animation.y > self.ground_limit:
@@ -49,3 +42,11 @@ class AirPlaneModel(GameObjectInterface):
     def forward(self, fps):
         self.animation.x += fps
 
+    def shot(self):
+        if self.shotModel.shotAnimation.x == 2000:
+            shot_x = self.animation.x + self.animation.width
+            shot_y = self.animation.y + (self.animation.height / 2)
+            self.shotModel.set_position(shot_x, shot_y)
+
+    def get_shot(self):
+        return self.shotModel

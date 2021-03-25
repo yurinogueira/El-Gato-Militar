@@ -27,7 +27,7 @@ class SpecialModel (GameObjectInterface):
     def move(self, fps: int):
         if self.movimentation:
             self.time += 1
-            if self.time % 25 == 0:
+            if self.time % 120 == 0:
                 start_x = self.original_x - 250
                 start_y = self.original_y - 250
                 end_x = self.original_x + 250

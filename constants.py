@@ -36,12 +36,14 @@ SPRITES_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'sprites')
 
 CAT_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'cat')
 AIRPLANE_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'airplanes')
+ENEMY_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'enemy')
 
 
 BACKGROUND_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'background')
 HUD_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'hud')
 HUD_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'hud')
 POWER_UP_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'powerUp')
+BULLET_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'bullets')
 
 # Background
 BACKGROUND_HOME = os.path.join(BACKGROUND_PATH, 'home.png')
@@ -75,6 +77,19 @@ PLUSJET_BLUE_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_blue_fly.png'), 
 PLUSJET_GREEN_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_green_fly.png'), 2)
 PLUSJET_RED_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_red_fly.png'), 2)
 PLUSJET_YELLOW_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_yellow_fly.png'), 2)
+
+#ENEMY
+PLUSJET_RED_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_red_fly.png'), 2)
+
+
+#BULLET
+FIRE_BALL = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball.png'), 1)
+FIRE_BALL_BLUE = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_blue.png'), 1)
+FIRE_BALL_PINK = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_pink.png'), 1)
+TORPEDO = (os.path.join(BULLET_SPRITE_PATH, 'torpedo.png'), 3)
+TORPEDO_BLACK = (os.path.join(BULLET_SPRITE_PATH, 'torpedo_black.png'), 3)
+
+
 
 # POWER-UP
 POWER_UP_COIN = (os.path.join(POWER_UP_SPRITE_PATH, 'coins.png'), 1)

@@ -6,20 +6,23 @@ from src.itemgame.SpecialModel import SpecialModel
 from src.model.AirPlaneModel import AirPlaneModel
 from src.model.BackgroundModel import BackgroundModel
 from src.itemgame.CoinModel import CoinModel
+from src.model.EnemyAirPlaneModel import EnemyAirPlaneModel
 
 
 class BattleSceneFirst(SceneInterface):
     def __init__(self, hud: HudManager):
         self.hud = hud
         self.background = BackgroundModel(BACKGROUND_BATTLE1)
-        self.airplane = AirPlaneModel()
+        self.air_plane = AirPlaneModel()
+        self.enemy_plane = EnemyAirPlaneModel(700, 300)
         self.coin = CoinModel()
         self.life = LifeModel(WIDTH_SCREEN, HEIGHT_SCREEN / 2, True)
         self.special = SpecialModel(WIDTH_SCREEN / 2, HEIGHT_SCREEN / 2, True)
         self.fps = 0
 
-        self.game_objects = [self.background, self.airplane,
-                             self.coin, self.life, self.special]
+        self.game_objects = [self.background, self.enemy_plane, self.air_plane,
+                             self.coin, self.life, self.special,
+                             self.air_plane.get_shot() ]
 
     def handle_event(self, fps, event, state):
         if not state:
@@ -27,31 +30,36 @@ class BattleSceneFirst(SceneInterface):
 
         self.fps = fps
         if event.key_pressed("UP"):  # Direcional ^
-            self.airplane.up(self.fps)
+            self.air_plane.up(self.fps)
         if event.key_pressed("DOWN"):
-            self.airplane.down(self.fps)
+            self.air_plane.down(self.fps)
         if event.key_pressed("RIGHT"):
-            self.airplane.forward(self.fps)
+            self.air_plane.forward(self.fps)
         if event.key_pressed("LEFT"):
-            self.airplane.backward(self.fps)
+            self.air_plane.backward(self.fps)
+        if event.key_pressed("SPACE"):
+            self.air_plane.shot()
 
         for game_object in self.game_objects:
             game_object.move(self.fps)
 
-        if self.coin.collide(self.airplane):
+        if self.coin.collide(self.air_plane):
             self.coin.points += 1
             self.hud.add_points(self.coin.points)
 
-        if self.life.collide(self.airplane):
+        if self.life.collide(self.air_plane):
             self.life.disable_movimentation()
             self.hud.add_life()
 
-        if self.special.collide(self.airplane):
+        if self.special.collide(self.air_plane):
             self.special.disable_movimentation()
             self.hud.add_special()
 
+        if self.air_plane.get_shot().collide(self.enemy_plane):
+            self.enemy_plane.hidden()
+
     def draw(self, state):
-        #if state:
+        # if state:
 
         for game_object in self.game_objects:
             game_object.draw()
