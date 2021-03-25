@@ -4,8 +4,8 @@ from src.itemgame.ItemModel import ItemModel
 
 
 class ShotModel(GameObjectInterface):
-    def __init__(self, x: int, y: int):
-        self.shot = ItemModel(FIRE_BALL)
+    def __init__(self, x: int, y: int, sprite=FIRE_BALL):
+        self.shot = ItemModel(sprite)
         self.shotAnimation = self.shot.animation
         self.shotAnimation.set_position(x, y)
         self.reloadShot = True

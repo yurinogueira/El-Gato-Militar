@@ -6,12 +6,12 @@ from src.interfaces.GameObjectInterface import GameObjectInterface
 
 class LifeHud():
 
-    def __init__(self):
+    def __init__(self, bar_x=4, bar_y=0):
         self.bar = GameImage(LIFE_HUD)
-        self.bar.set_position(4, 0)
+        self.bar.set_position(bar_x, bar_y)
         self.value = Sprite(*LIFE_POINTS)
-        self.value.set_position(-6, -10)
-        self.value.set_curr_frame(1)
+        self.value.set_position(bar_x-10, bar_y-10)
+        self.value.set_curr_frame(2)
 
 
     def draw(self):
@@ -24,7 +24,9 @@ class LifeHud():
 
     def loseLife(self):
         point = self.value.curr_frame - 1
-        self.value.set_curr_frame(self.__checkLife(point))
+        if point >= 0:
+            self.value.set_curr_frame(self.__checkLife(point))
+        return point
 
     def __checkLife(self, point):
         if point < 0:
@@ -33,3 +35,7 @@ class LifeHud():
             return 2
         else:
             return point
+
+    def move(self, x, y):
+        self.bar.set_position(x, y)
+        self.value.set_position(x-10, y-10)

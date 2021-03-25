@@ -84,6 +84,7 @@ PLUSJET_RED_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_red_fly.png'), 2)
 
 #BULLET
 FIRE_BALL = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball.png'), 1)
+FIRE_BALL_REVERSE = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_reverse.png'), 1)
 FIRE_BALL_BLUE = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_blue.png'), 1)
 FIRE_BALL_PINK = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_pink.png'), 1)
 TORPEDO = (os.path.join(BULLET_SPRITE_PATH, 'torpedo.png'), 3)

@@ -22,7 +22,8 @@ class BattleSceneFirst(SceneInterface):
 
         self.game_objects = [self.background, self.enemy_plane, self.air_plane,
                              self.coin, self.life, self.special,
-                             self.air_plane.get_shot() ]
+                             self.air_plane.get_shot(),
+                             self.enemy_plane.get_shot()]
 
     def handle_event(self, fps, event, state):
         if not state:
@@ -56,7 +57,13 @@ class BattleSceneFirst(SceneInterface):
             self.hud.add_special()
 
         if self.air_plane.get_shot().collide(self.enemy_plane):
-            self.enemy_plane.hidden()
+            if (self.enemy_plane.lifeModel.loseLife()) == 0:
+                self.enemy_plane.hidden()
+
+        if self.enemy_plane.get_shot().collide(self.air_plane):
+            self.hud.lose_life()
+
+        self.enemy_plane.can_shot(self.air_plane)
 
     def draw(self, state):
         # if state:
@@ -64,6 +71,7 @@ class BattleSceneFirst(SceneInterface):
         for game_object in self.game_objects:
             game_object.draw()
 
+        self.enemy_plane.get_life().draw()
         self.hud.draw()  # deve ser o ultimo
 
     def update(self, state):
