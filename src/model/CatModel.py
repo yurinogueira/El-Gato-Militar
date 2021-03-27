@@ -16,11 +16,14 @@ class CatModel(GameObjectInterface):
         self.antx = 0
         self.anty = 0
         self.looking_to = True
+        self.jumping = False
+        self.original_y = 0
 
-    def jump(self, fps):
+    def jump(self):
         if self.animation.y == self.ground_limit:
-            self.animation.y -= fps
             self.__set_sprite(CAT_SPRITE_JUMP, CAT_SPRITE_JUMP_FLIPED, self.looking_to, 500)
+            self.original_y = self.animation.y
+            self.jumping = True
 
     def idle(self):
         if self.animation.total_duration == 980 or self.animation.total_duration == 970:
@@ -44,13 +47,12 @@ class CatModel(GameObjectInterface):
         return self.animation.is_playing()
 
     def move(self, speed):
-
         self.animation.move_key_y(speed)
         self.animation.move_key_x(speed)
 
         #faz o personagem desce
         if self.animation.y < self.ground_limit:
-            self.animation.y += speed * 5
+            self.animation.y += speed * 2
         if self.animation.y > self.ground_limit:
             self.animation.y = self.ground_limit
         if self.animation.x + self.animation.width > WIDTH_SCREEN:
@@ -62,6 +64,12 @@ class CatModel(GameObjectInterface):
         self.animation.draw()
 
     def update(self):
+        if self.jumping:
+            self.y -= 2
+            self.animation.y = self.y
+            print(self.animation.y)
+            if self.original_y - self.y >= JUMP_MAX:
+                self.jumping = False
         self.animation.update()
 
     def __set_sprite(self, sprite, sprite_fliped, looking_to, duration=980):

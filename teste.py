@@ -18,7 +18,7 @@ scenes = {
     'Battle': BattleSceneFirst(hud)
 }
 
-scene = scenes['Battle']
+scene = scenes['Main']
 
 
 def change_scene(scene_key='Main'):

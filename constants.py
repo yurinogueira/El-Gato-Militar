@@ -1,5 +1,9 @@
 import os
 
+
+from PPlay.sound import Sound
+
+
 # Tuples
 WIDTH_SCREEN = 1280
 HEIGHT_SCREEN = 720
@@ -10,6 +14,7 @@ TITLE = "El Gato Militar"
 GROUND = HEIGHT_SCREEN - 400
 POINTS = 60
 TIME = 60
+JUMP_MAX = 150
 
 # Colors
 GRAY                    = (100, 100, 100)
@@ -33,11 +38,11 @@ GOLD                    = (255, 215,   0)
 ROOT_PATH = os.path.dirname(__file__)
 RESOURCES_PATH = os.path.join(os.path.sep, ROOT_PATH, 'resources')
 SPRITES_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'sprites')
+SOUND_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'sounds')
 
 CAT_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'cat')
 AIRPLANE_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'airplanes')
 ENEMY_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'enemy')
-
 
 BACKGROUND_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'background')
 HUD_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'hud')
@@ -81,7 +86,6 @@ PLUSJET_YELLOW_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_yellow_fly.png
 #ENEMY
 PLUSJET_RED_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_red_fly.png'), 2)
 
-
 #BULLET
 FIRE_BALL = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball.png'), 1)
 FIRE_BALL_REVERSE = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_reverse.png'), 1)
@@ -89,8 +93,6 @@ FIRE_BALL_BLUE = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_blue.png'), 1)
 FIRE_BALL_PINK = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_pink.png'), 1)
 TORPEDO = (os.path.join(BULLET_SPRITE_PATH, 'torpedo.png'), 3)
 TORPEDO_BLACK = (os.path.join(BULLET_SPRITE_PATH, 'torpedo_black.png'), 3)
-
-
 
 # POWER-UP
 POWER_UP_COIN = (os.path.join(POWER_UP_SPRITE_PATH, 'coins.png'), 1)
@@ -112,3 +114,6 @@ PAUSE_SCREEN = os.path.join(HUD_PATH, 'pause_screen.png')
 
 LIFE_POINTS = (os.path.join(HUD_SPRITE_PATH, 'life_value.png'), 3)
 SPECIAL_POINTS = (os.path.join(HUD_SPRITE_PATH, 'special_value.png'), 3)
+
+# SOUNDS
+COIN_SOUND = Sound(os.path.join(SOUND_PATH, 'coin_pickup.ogg'))

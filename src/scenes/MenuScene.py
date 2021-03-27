@@ -11,8 +11,8 @@ class MenuScene(SceneInterface):
         self.hud = hud
         self.window = hud.get_window()
         self.fundo = GameImage(BACKGROUND_HOME)
-        self.jogar_button = Button(self.window, 200, 90, "JOGAR")
-        self.sair_button = Button(self.window, 200, 630, "SAIR")
+        self.jogar_button = Button(self.window, 250, self.window.height - 96, "JOGAR")
+        self.sair_button = Button(self.window, self.window.width - 250, self.window.height - 96, "SAIR")
 
     def handle_event(self, speed, event, state):
         if self.jogar_button.is_button_pressed():

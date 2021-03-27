@@ -10,7 +10,7 @@ class CoinModel(GameObjectInterface):
         self.coinAnimation = self.coin.animation
 
         self.coinAnimation.set_position(x, y)
-        self.movimentation =  movimentation
+        self.movimentation = movimentation
         self.points = 0
 
     def draw(self):
@@ -28,7 +28,10 @@ class CoinModel(GameObjectInterface):
                 self.coinAnimation.set_position(self.__random_x(), random.randint(-50000, 0))
 
     def collide(self, obj):
-        return self.coin.collide(obj)
+        if self.coin.collide(obj):
+            COIN_SOUND.play()
+            return True
+        return False
 
     def generatesPoint(self, size):
         powers = []

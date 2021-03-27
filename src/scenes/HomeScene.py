@@ -15,14 +15,13 @@ class HomeScene(SceneInterface):
         self.coin = CoinModel()
         self.listPower = self.coin.generatesPoint(60)
 
-
     def handle_event(self, speed, event, state):
         if not state:
             return
 
         self.speed = speed
         if event.key_pressed("UP"):  # Direcional ^
-            self.cat.jump(300)
+            self.cat.jump()
         elif event.key_pressed("LEFT"):
             self.cat.walk_fliped()
         elif event.key_pressed("RIGHT"):
