@@ -12,7 +12,7 @@ class LifeModel(GameObjectInterface):
         self.original_x = x
         self.original_y = y
         self.lifeAnimation.set_position(x, y)
-        self.movimentation = movimentation
+        self.visible = movimentation
         self.module = -1
         self.direction = 3
 
@@ -24,7 +24,7 @@ class LifeModel(GameObjectInterface):
 
     def move(self, fps: int):
         amplitude = 100
-        if self.movimentation:
+        if self.visible:
 
             if self.lifeAnimation.y < self.original_y - amplitude:
                 self.lifeAnimation.y = self.original_y - amplitude
@@ -39,5 +39,6 @@ class LifeModel(GameObjectInterface):
     def collide(self, obj):
         return self.life.collide(obj)
 
-    def disable_movimentation(self):
-        self.movimentation = False
+    def change_visibility(self, x=2000, y=2000):
+        self.life.animation.set_position(x, y)
+        self.visible = not self.visible

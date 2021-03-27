@@ -11,7 +11,7 @@ class SpecialHud():
         self.bar.set_position(4, 76)
         self.value = Sprite(*SPECIAL_POINTS)
         self.value.set_position(-6, 65)
-        self.value.set_curr_frame(1)
+        self.value.set_curr_frame(0)
 
     def draw(self):
         self.bar.draw()
@@ -22,8 +22,12 @@ class SpecialHud():
         self.value.set_curr_frame(self.__checkLife(point))
 
     def loseSpecial(self):
-        point = self.value.curr_frame - 1
-        self.value.set_curr_frame(self.__checkLife(point))
+        self.value.set_curr_frame(0)
+
+    def current_special(self):
+        return self.value.curr_frame
+
+
 
     def __checkLife(self, point):
         if point < 0:

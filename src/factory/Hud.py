@@ -37,16 +37,19 @@ class HudManager:
         self.point.addPoint(amount)
 
     def add_life(self):
-        self.life.addLife()
+        self.life.add_life()
 
     def lose_life(self):
-        self.life.loseLife()
+        self.life.lose_life()
 
     def add_special(self):
         self.special.addSpecial()
 
     def lose_special(self):
         self.special.loseSpecial()
+
+    def get_special(self):
+        return self.special.current_special()
 
     def get_window(self):
         return self.window

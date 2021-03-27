@@ -104,6 +104,7 @@ POWER_UP_ENERGY = (os.path.join(POWER_UP_SPRITE_PATH, 'energy.png'), 1)
 POINTS_HUD = os.path.join(HUD_PATH, 'bar_points.png')
 TIME_HUD = os.path.join(HUD_PATH, 'bar_time.png')
 LIFE_HUD = os.path.join(HUD_PATH, 'bar_life.png')
+LIFE_HUD_ENEMY = os.path.join(HUD_PATH, 'bar_life_enemy.png')
 SPECIAL_HUD = os.path.join(HUD_PATH, 'bar_special.png')
 PAUSE_HUD = os.path.join(HUD_PATH, 'button_pause.png')
 SHOP_HUD = os.path.join(HUD_PATH, 'button_shop.png')
@@ -113,6 +114,7 @@ HOVER_BUTTON = os.path.join(HUD_PATH, 'hover_button.png')
 PAUSE_SCREEN = os.path.join(HUD_PATH, 'pause_screen.png')
 
 LIFE_POINTS = (os.path.join(HUD_SPRITE_PATH, 'life_value.png'), 3)
+LIFE_POINTS_ENEMY= (os.path.join(HUD_SPRITE_PATH, 'life_value_enemy.png'), 3)
 SPECIAL_POINTS = (os.path.join(HUD_SPRITE_PATH, 'special_value.png'), 3)
 
 # SOUNDS

@@ -13,7 +13,7 @@ class SpecialModel (GameObjectInterface):
         self.original_x = x
         self.original_y = y
         self.special_animation.set_position(x, y)
-        self.movimentation = movimentation
+        self.visible = movimentation
         self.module = -1
         self.direction = 3
         self.time = 0
@@ -25,7 +25,7 @@ class SpecialModel (GameObjectInterface):
         self.special_animation.update()
 
     def move(self, fps: int):
-        if self.movimentation:
+        if self.visible:
             self.time += 1
             if self.time % 120 == 0:
                 start_x = self.original_x - 250
@@ -42,5 +42,6 @@ class SpecialModel (GameObjectInterface):
     def collide(self, obj):
         return self.special.collide(obj)
 
-    def disable_movimentation(self):
-        self.movimentation = False
+    def change_visibility(self, x=2000, y=2000):
+        self.special_animation.set_position(x, y)
+        self.visible = not self.visible

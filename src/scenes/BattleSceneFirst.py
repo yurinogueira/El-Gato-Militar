@@ -19,10 +19,12 @@ class BattleSceneFirst(SceneInterface):
         self.life = LifeModel(WIDTH_SCREEN, HEIGHT_SCREEN / 2, True)
         self.special = SpecialModel(WIDTH_SCREEN / 2, HEIGHT_SCREEN / 2, True)
         self.fps = 0
+        self.point = 0
 
         self.game_objects = [self.background, self.enemy_plane, self.air_plane,
                              self.coin, self.life, self.special,
                              self.air_plane.get_shot(),
+                             self.air_plane.get_shot_special(),
                              self.enemy_plane.get_shot()]
 
     def handle_event(self, fps, event, state):
@@ -40,6 +42,9 @@ class BattleSceneFirst(SceneInterface):
             self.air_plane.backward(self.fps)
         if event.key_pressed("SPACE"):
             self.air_plane.shot()
+        if event.key_pressed("S") and self.hud.get_special() == 2:
+            self.hud.lose_special()
+            self.air_plane.shot_special()
 
         for game_object in self.game_objects:
             game_object.move(self.fps)
@@ -49,16 +54,28 @@ class BattleSceneFirst(SceneInterface):
             self.hud.add_points(self.coin.points)
 
         if self.life.collide(self.air_plane):
-            self.life.disable_movimentation()
+            self.life.change_visibility()
             self.hud.add_life()
 
         if self.special.collide(self.air_plane):
-            self.special.disable_movimentation()
+            self.special.change_visibility()
             self.hud.add_special()
 
         if self.air_plane.get_shot().collide(self.enemy_plane):
-            if (self.enemy_plane.lifeModel.loseLife()) == 0:
+            self.point += 1
+
+            if self.point % 4 == 0:
+                self.special.change_visibility(self.enemy_plane.animation.x, self.enemy_plane.animation.y)
+            if self.point % 5 == 0:
+                self.life.change_visibility(self.enemy_plane.animation.x, self.enemy_plane.animation.y)
+
+            if (self.enemy_plane.lifeModel.lose_life()) == 0:
                 self.enemy_plane.hidden()
+
+        if self.air_plane.get_shot_special().collide(self.enemy_plane):
+            self.point += 3
+            self.enemy_plane.lifeModel.empty_life()
+            self.enemy_plane.hidden()
 
         if self.enemy_plane.get_shot().collide(self.air_plane):
             self.hud.lose_life()
@@ -66,7 +83,6 @@ class BattleSceneFirst(SceneInterface):
         self.enemy_plane.can_shot(self.air_plane)
 
     def draw(self, state):
-        # if state:
 
         for game_object in self.game_objects:
             game_object.draw()

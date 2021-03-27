@@ -13,6 +13,7 @@ class AirPlaneModel(GameObjectInterface):
         self.animation.set_position(x, y)
         self.ground_limit = HEIGHT_SCREEN - self.animation.height
         self.shotModel = ShotModel(2000, 2000)
+        self.shotModel_special = ShotModel(2000, 2000, FIRE_BALL_BLUE)
 
     def draw(self):
         self.animation.draw()
@@ -21,8 +22,8 @@ class AirPlaneModel(GameObjectInterface):
         self.animation.update()
 
     def move(self, speed):
-        if self.animation.y < 0:
-            self.animation.y = 0
+        if self.animation.y < 20:
+            self.animation.y = 20
         if self.animation.y > self.ground_limit:
             self.animation.y = self.ground_limit
         if self.animation.x + self.animation.width > WIDTH_SCREEN:
@@ -42,11 +43,19 @@ class AirPlaneModel(GameObjectInterface):
     def forward(self, fps):
         self.animation.x += fps
 
-    def shot(self):
-        if self.shotModel.shotAnimation.x == 2000:
+    def shot(self, shot=None):
+        if shot is None:
+            shot = self.shotModel
+        if shot.shotAnimation.x == 2000:
             shot_x = self.animation.x + self.animation.width
             shot_y = self.animation.y + (self.animation.height / 2)
-            self.shotModel.set_position(shot_x, shot_y)
+            shot.set_position(shot_x, shot_y)
 
     def get_shot(self):
         return self.shotModel
+
+    def get_shot_special(self):
+        return self.shotModel_special
+
+    def shot_special(self):
+        self.shot(self.shotModel_special)
