@@ -3,7 +3,6 @@ import random
 from constants import *
 from src.hud.LifeHud import LifeHud
 from src.itemgame.ShotEnemyModel import ShotEnemyModel
-from src.itemgame.ShotModel import ShotModel
 from src.model.AirPlaneModel import AirPlaneModel
 
 

@@ -1,11 +1,9 @@
 from PPlay.gameimage import GameImage
 from PPlay.sprite import Sprite
 from constants import *
-from src.interfaces.GameObjectInterface import GameObjectInterface
 
 
-class SpecialHud():
-
+class SpecialHud:
     def __init__(self):
         self.bar = GameImage(SPECIAL_HUD)
         self.bar.set_position(4, 76)
@@ -27,12 +25,10 @@ class SpecialHud():
     def current_special(self):
         return self.value.curr_frame
 
-
-
     def __checkLife(self, point):
         if point < 0:
             return 0
-        elif point > 2:
-            return 2
+        elif point > 4:
+            return 4
         else:
             return point

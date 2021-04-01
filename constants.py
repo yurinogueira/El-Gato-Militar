@@ -58,14 +58,13 @@ BACKGROUND_BATTLE1 = os.path.join(BACKGROUND_PATH, 'battle1.png')
 # CAT
 CAT_SPRITE_WALK = (os.path.join(CAT_SPRITE_PATH, 'cat_walk.png'), 10)
 CAT_SPRITE_WALK_FLIPED = (os.path.join(CAT_SPRITE_PATH, 'cat_walk_fliped.png'), 10)
-CAT_SPRITE_RUN = (os.path.join(CAT_SPRITE_PATH, 'cat_run.png'), 8)
-CAT_SPRITE_SLIDE = (os.path.join(CAT_SPRITE_PATH, 'cat_slide.png'), 10)
 CAT_SPRITE_JUMP = (os.path.join(CAT_SPRITE_PATH, 'cat_jump.png'), 8)
 CAT_SPRITE_JUMP_FLIPED = (os.path.join(CAT_SPRITE_PATH, 'cat_jump_fliped.png'), 8)
+CAT_SPRITE_FALL = (os.path.join(CAT_SPRITE_PATH, 'cat_fall.png'), 8)
+CAT_SPRITE_FALL_FLIPED = (os.path.join(CAT_SPRITE_PATH, 'cat_fall_fliped.png'), 8)
 CAT_SPRITE_IDLE = (os.path.join(CAT_SPRITE_PATH, 'cat_idle.png'), 10)
 CAT_SPRITE_IDLE_FLIPED = (os.path.join(CAT_SPRITE_PATH, 'cat_idle_fliped.png'), 10)
 CAT_SPRITE_HURT = (os.path.join(CAT_SPRITE_PATH, 'cat_hurt.png'), 10)
-CAT_SPRITE_FALL = (os.path.join(CAT_SPRITE_PATH, 'cat_fall.png'), 8)
 CAT_SPRITE_DEAD = (os.path.join(CAT_SPRITE_PATH, 'cat_dead.png'), 10)
 
 # Sprites
@@ -113,9 +112,9 @@ ACTIVED_BUTTON = os.path.join(HUD_PATH, 'active_button.png')
 HOVER_BUTTON = os.path.join(HUD_PATH, 'hover_button.png')
 PAUSE_SCREEN = os.path.join(HUD_PATH, 'pause_screen.png')
 
-LIFE_POINTS = (os.path.join(HUD_SPRITE_PATH, 'life_value.png'), 3)
-LIFE_POINTS_ENEMY= (os.path.join(HUD_SPRITE_PATH, 'life_value_enemy.png'), 3)
-SPECIAL_POINTS = (os.path.join(HUD_SPRITE_PATH, 'special_value.png'), 3)
+LIFE_POINTS = (os.path.join(HUD_SPRITE_PATH, 'life_value.png'), 5)
+LIFE_POINTS_ENEMY = (os.path.join(HUD_SPRITE_PATH, 'life_value_enemy.png'), 5)
+SPECIAL_POINTS = (os.path.join(HUD_SPRITE_PATH, 'special_value.png'), 5)
 
 # SOUNDS
 COIN_SOUND = Sound(os.path.join(SOUND_PATH, 'coin_pickup.ogg'))

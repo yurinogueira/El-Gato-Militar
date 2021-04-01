@@ -1,7 +1,6 @@
 from constants import *
 from src.interfaces.GameObjectInterface import GameObjectInterface
 from src.itemgame.ItemModel import ItemModel
-from src.model.AirPlaneModel import AirPlaneModel
 
 
 class LifeModel(GameObjectInterface):
