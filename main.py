@@ -2,7 +2,6 @@ from PPlay.window import *
 
 # Janela e HUD
 from constants import WINDOW_SIZE
-from src.factory.Hud import HudManager
 from src.scenes.MenuScene import MenuScene
 from src.scenes.HomeScene import HomeScene
 from src.scenes.BattleSceneFirst import BattleSceneFirst
@@ -10,30 +9,17 @@ from src.scenes.BattleSceneFirst import BattleSceneFirst
 
 running = True
 window = Window(*WINDOW_SIZE)
-hud = HudManager(window)
-
-scenes = {
-    'Home': HomeScene(hud),
-    'Main': MenuScene(hud),
-    'Battle': BattleSceneFirst(hud)
-}
-
-scene = scenes['Main']
+scene = MenuScene(window)
 
 
 def change_scene(scene_key='Main'):
     global scene
+    scenes = {
+        'Home': HomeScene(scene.hud),
+        'Main': MenuScene(window),
+        'Battle': BattleSceneFirst(scene.hud)
+    }
     scene = scenes[scene_key]
-
-
-def change_state(state=True):
-    global running
-    running = state
-
-
-def get_state():
-    global running
-    return running
 
 
 # Loop

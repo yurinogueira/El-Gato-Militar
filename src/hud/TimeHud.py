@@ -17,8 +17,8 @@ class TimeHud:
         seconds = self.time
 
         if int(seconds) == 0:
-            import teste
-            teste.change_scene('Battle')
+            import main
+            main.change_scene('Battle')
 
         text = CenterText(self.window, self.window.width / 2, 46, text=int(seconds))
         text.draw()

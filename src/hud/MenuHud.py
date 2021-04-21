@@ -3,14 +3,6 @@ from constants import *
 from src.factory.Button import Button
 
 
-show_menu = False
-
-
-def change_show_menu(value):
-    global show_menu
-    show_menu = value
-
-
 class MenuHud:
     def __init__(self, window):
         self.window = window
@@ -24,22 +16,24 @@ class MenuHud:
         self.menu_button = Button(self.window, self.window.width / 2, 320, "MENU")
         self.return_button = Button(self.window, self.window.width / 2, 500, "VOLTAR")
 
+        self.show_menu = False
+
     def draw(self):
         self.button.draw()
-        if show_menu:
+        if self.show_menu:
             self.menu_screen.draw()
             self.menu_button.draw()
             self.return_button.draw()
 
     def update(self):
-        import teste
+        import main
         if self.window.get_mouse().is_button_pressed(1) and self.window.get_mouse().is_over_object(self.button):
-            teste.change_state(False)
-            change_show_menu(True)
+            main.running = False
+            self.show_menu = True
         elif self.window.get_keyboard().key_pressed("ESCAPE") or self.return_button.is_button_pressed():
-            teste.change_state(True)
-            change_show_menu(False)
+            main.running = True
+            self.show_menu = False
         elif self.menu_button.is_button_pressed():
-            teste.change_state(True)
-            change_show_menu(False)
-            teste.change_scene()
+            main.running = True
+            self.show_menu = False
+            main.change_scene()

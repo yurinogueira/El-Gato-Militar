@@ -67,7 +67,6 @@ class CatModel(GameObjectInterface):
         if self.jumping:
             self.y -= 2
             self.animation.y = self.y
-            print(self.animation.y)
             if self.original_y - self.y >= JUMP_MAX:
                 self.__set_sprite(CAT_SPRITE_FALL, CAT_SPRITE_FALL_FLIPED, self.looking_to, 500)
                 self.jumping = False
