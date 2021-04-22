@@ -18,7 +18,7 @@ class MenuScene(SceneInterface):
         self.jogar_button = Button(self.window, 250, self.window.height - 96, "JOGAR")
         self.sair_button = Button(self.window, self.window.width - 250, self.window.height - 96, "SAIR")
 
-    def handle_event(self, speed, event, state):
+    def handle_event(self, speed, state):
         if self.jogar_button.is_button_pressed():
             import main
             main.change_scene('Home')

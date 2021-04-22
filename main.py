@@ -1,10 +1,10 @@
 from PPlay.window import *
 
-# Janela e HUD
-from constants import WINDOW_SIZE
 from src.scenes.MenuScene import MenuScene
 from src.scenes.HomeScene import HomeScene
 from src.scenes.BattleSceneFirst import BattleSceneFirst
+
+from constants import WINDOW_SIZE, FRAME_SPEED
 
 
 running = True
@@ -24,9 +24,9 @@ def change_scene(scene_key='Main'):
 
 # Loop
 while True:
-    SPEED_PER_FRAME = 200 * window.delta_time()
+    SPEED_PER_FRAME = FRAME_SPEED * window.delta_time()
 
-    scene.handle_event(SPEED_PER_FRAME, window.get_keyboard(), running)
+    scene.handle_event(SPEED_PER_FRAME, running)
     scene.draw(running)
     scene.update(running)
 

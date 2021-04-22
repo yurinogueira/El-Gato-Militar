@@ -1,5 +1,7 @@
 from PPlay.gameimage import *
+
 from constants import *
+
 from src.interfaces.SceneInteface import SceneInterface
 from src.model.CatModel import CatModel
 from src.itemgame.CoinModel import CoinModel
@@ -9,22 +11,23 @@ class HomeScene(SceneInterface):
 
     def __init__(self, hud):
         self.hud = hud
+        self.key_board = hud.get_window().get_keyboard()
         self.fundo = GameImage(BACKGROUND_HOME)
         self.cat = CatModel()
         self.speed = 0
         self.coin = CoinModel()
-        self.listPower = self.coin.generatesPoint(60)
+        self.listPower = self.coin.generatesPoint(GENERATED_POINTS)
 
-    def handle_event(self, speed, event, state):
+    def handle_event(self, speed, state):
         if not state:
             return
 
         self.speed = speed
-        if event.key_pressed("UP"):  # Direcional ^
+        if self.key_board.key_pressed("UP"):  # Direcional ^
             self.cat.jump()
-        elif event.key_pressed("LEFT"):
+        elif self.key_board.key_pressed("LEFT"):
             self.cat.walk_fliped()
-        elif event.key_pressed("RIGHT"):
+        elif self.key_board.key_pressed("RIGHT"):
             self.cat.walk()
         else:
             self.cat.idle()

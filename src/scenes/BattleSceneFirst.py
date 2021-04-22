@@ -12,9 +12,10 @@ from src.model.EnemyAirPlaneModel import EnemyAirPlaneModel
 class BattleSceneFirst(SceneInterface):
     def __init__(self, hud: HudManager):
         self.hud = hud
+        self.key_board = hud.get_window().get_keyboard()
         self.background = BackgroundModel(BACKGROUND_BATTLE1)
         self.air_plane = AirPlaneModel()
-        self.enemy_plane = EnemyAirPlaneModel(700, 300)
+        self.enemy_plane = EnemyAirPlaneModel(*ENEMY_PLANE_FIRST_POSITION)
         self.coin = CoinModel()
         self.life = LifeModel(WIDTH_SCREEN, HEIGHT_SCREEN / 2, True)
         self.special = SpecialModel(WIDTH_SCREEN / 2, HEIGHT_SCREEN / 2, True)
@@ -29,7 +30,7 @@ class BattleSceneFirst(SceneInterface):
         self.shot_enemy_time = 0.0
         self.shot_time = 0.0
 
-    def handle_event(self, fps, event, state):
+    def handle_event(self, fps, state):
         if not state:
             return
 
@@ -37,19 +38,19 @@ class BattleSceneFirst(SceneInterface):
         self.shot_time -= self.hud.get_window().delta_time()
         self.fps = fps
 
-        if event.key_pressed("UP"):  # Direcional ^
+        if self.key_board.key_pressed("UP"):  # Direcional ^
             self.air_plane.up(self.fps)
-        if event.key_pressed("DOWN"):
+        if self.key_board.key_pressed("DOWN"):
             self.air_plane.down(self.fps)
-        if event.key_pressed("RIGHT"):
+        if self.key_board.key_pressed("RIGHT"):
             self.air_plane.forward(self.fps)
-        if event.key_pressed("LEFT"):
+        if self.key_board.key_pressed("LEFT"):
             self.air_plane.backward(self.fps)
         if self.shot_time <= 0.0:
-            if event.key_pressed("SPACE"):
+            if self.key_board.key_pressed("SPACE"):
                 self.air_plane.shot()
                 self.shot_time = 1
-        if event.key_pressed("S") and self.hud.get_special() == 2:
+        if self.key_board.key_pressed("S") and self.hud.get_special() == 2:
             self.hud.lose_special()
             self.air_plane.shot_special()
 
