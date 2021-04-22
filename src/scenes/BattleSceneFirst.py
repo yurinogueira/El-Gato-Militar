@@ -26,12 +26,17 @@ class BattleSceneFirst(SceneInterface):
                              self.air_plane.get_shot(),
                              self.air_plane.get_shot_special(),
                              self.enemy_plane.get_shot()]
+        self.shot_enemy_time = 0.0
+        self.shot_time = 0.0
 
     def handle_event(self, fps, event, state):
         if not state:
             return
 
+        self.shot_enemy_time -= self.hud.get_window().delta_time()
+        self.shot_time -= self.hud.get_window().delta_time()
         self.fps = fps
+
         if event.key_pressed("UP"):  # Direcional ^
             self.air_plane.up(self.fps)
         if event.key_pressed("DOWN"):
@@ -40,8 +45,10 @@ class BattleSceneFirst(SceneInterface):
             self.air_plane.forward(self.fps)
         if event.key_pressed("LEFT"):
             self.air_plane.backward(self.fps)
-        if event.key_pressed("SPACE"):
-            self.air_plane.shot()
+        if self.shot_time <= 0.0:
+            if event.key_pressed("SPACE"):
+                self.air_plane.shot()
+                self.shot_time = 1
         if event.key_pressed("S") and self.hud.get_special() == 2:
             self.hud.lose_special()
             self.air_plane.shot_special()
@@ -80,7 +87,9 @@ class BattleSceneFirst(SceneInterface):
         if self.enemy_plane.get_shot().collide(self.air_plane):
             self.hud.lose_life()
 
-        self.enemy_plane.can_shot(self.air_plane)
+        if self.shot_enemy_time <= 0.0:
+            self.enemy_plane.can_shot(self.air_plane)
+            self.shot_enemy_time = 2
 
     def draw(self, state):
 

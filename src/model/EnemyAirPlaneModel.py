@@ -1,7 +1,7 @@
 import random
 
 from constants import *
-from src.hud.LifeHud import LifeHud
+from src.hud.LifeHud import EnemyLifeHud
 from src.itemgame.ShotEnemyModel import ShotEnemyModel
 from src.model.AirPlaneModel import AirPlaneModel
 
@@ -12,9 +12,8 @@ class EnemyAirPlaneModel(AirPlaneModel):
         self.move_plane = 0
         self.is_hidden = False
         self.time = 0
-        self.lifeModel = LifeHud(x, y, LIFE_HUD_ENEMY, LIFE_POINTS_ENEMY)
+        self.lifeModel = EnemyLifeHud(x, y, LIFE_HUD_ENEMY, LIFE_POINTS_ENEMY)
         self.shotModel = ShotEnemyModel(2000, 2000)
-
 
     def backward(self, fps):
         self.animation.x += fps
@@ -22,7 +21,7 @@ class EnemyAirPlaneModel(AirPlaneModel):
     def forward(self, fps):
         self.animation.x -= fps
 
-    def shot(self):
+    def shot(self, shot=None):
         if self.shotModel.shotAnimation.x == 2000:
             shot_x = self.animation.x - 100
             shot_y = self.animation.y + (self.animation.height / 2)
@@ -31,6 +30,7 @@ class EnemyAirPlaneModel(AirPlaneModel):
     def hidden(self):
         self.animation.set_position(2000, 2000)
         self.is_hidden = True
+        self.lifeModel.hidden()
         self.animation.y = random.randint(0, HEIGHT_SCREEN)
     
     def move(self, speed):
@@ -59,7 +59,7 @@ class EnemyAirPlaneModel(AirPlaneModel):
     def get_life(self):
         return self.lifeModel
 
-    def can_shot(self, airplane:AirPlaneModel):
+    def can_shot(self, airplane: AirPlaneModel):
         if abs(self.animation.y - airplane.animation.y) < 150 and not self.is_hidden:
             self.shot()
 

@@ -42,3 +42,26 @@ class LifeHud:
     def move(self, x, y):
         self.bar.set_position(x, y)
         self.value.set_position(x-10, y-10)
+
+
+class EnemyLifeHud(LifeHud):
+    def __init__(self, bar_x=4, bar_y=0, life_hud=LIFE_HUD, life_points=LIFE_POINTS):
+        super().__init__(bar_x, bar_y, life_hud, life_points)
+        self.value.set_position(bar_x-6, bar_y-3)
+        self.is_hidden = False
+
+    def move(self, x, y):
+        self.bar.set_position(x, y)
+        self.value.set_position(x-6, y-3)
+
+    def draw(self):
+        if not self.is_hidden:
+            self.bar.draw()
+            self.value.draw()
+
+    def full_life(self):
+        self.is_hidden = False
+        self.value.set_curr_frame(4)
+
+    def hidden(self):
+        self.is_hidden = True
