@@ -17,6 +17,10 @@ class PointHud:
         text.draw()
 
     def addPoint(self, amount):
-        self.points = amount
+        self.points += amount
 
+    def get_point(self):
+        return self.points
 
+    def remove_point(self, amount: int):
+        self.points -= amount

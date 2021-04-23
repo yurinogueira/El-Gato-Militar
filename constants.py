@@ -81,7 +81,6 @@ PLANE_RED_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_red_fly.png'), 2)
 PLANE_YELLOW = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_yellow.png'), 2)
 PLUSJET_BLUE_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_blue_fly.png'), 2)
 PLUSJET_GREEN_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_green_fly.png'), 2)
-PLUSJET_RED_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_red_fly.png'), 2)
 PLUSJET_YELLOW_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_yellow_fly.png'), 2)
 
 #ENEMY
@@ -113,10 +112,20 @@ NORMAL_BUTTON = os.path.join(HUD_PATH, 'normal_button.png')
 ACTIVED_BUTTON = os.path.join(HUD_PATH, 'active_button.png')
 HOVER_BUTTON = os.path.join(HUD_PATH, 'hover_button.png')
 PAUSE_SCREEN = os.path.join(HUD_PATH, 'pause_screen.png')
+SHOP_SCREEN = os.path.join(HUD_PATH, 'shop_screen.png')
 
 LIFE_POINTS = (os.path.join(HUD_SPRITE_PATH, 'life_value.png'), 5)
 LIFE_POINTS_ENEMY = (os.path.join(HUD_SPRITE_PATH, 'life_value_enemy.png'), 5)
 SPECIAL_POINTS = (os.path.join(HUD_SPRITE_PATH, 'special_value.png'), 5)
+
+BLUE_FIRE_SHOP = os.path.join(HUD_PATH, 'blue_fire_shop.png')
+BLUE_FIRE_SHOP_B = os.path.join(HUD_PATH, 'blue_fire_shop_b.png')
+PINK_FIRE_SHOP = os.path.join(HUD_PATH, 'pink_fire_shop.png')
+PINK_FIRE_SHOP_B = os.path.join(HUD_PATH, 'pink_fire_shop_b.png')
+TORPEDO_SHOP = os.path.join(HUD_PATH, 'torpedo_shop.png')
+TORPEDO_SHOP_B = os.path.join(HUD_PATH, 'torpedo_shop_b.png')
+TORPEDO_BLACK_SHOP = os.path.join(HUD_PATH, 'torpedo_black_shop.png')
+TORPEDO_BLACK_SHOP_B = os.path.join(HUD_PATH, 'torpedo_black_shop_b.png')
 
 # SOUNDS
 COIN_SOUND = Sound(os.path.join(SOUND_PATH, 'coin_pickup.ogg'))

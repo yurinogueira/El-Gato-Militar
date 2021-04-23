@@ -14,7 +14,7 @@ class BattleSceneFirst(SceneInterface):
         self.hud = hud
         self.key_board = hud.get_window().get_keyboard()
         self.background = BackgroundModel(BACKGROUND_BATTLE1)
-        self.air_plane = AirPlaneModel()
+        self.air_plane = AirPlaneModel(shoot=self.hud.get_special_look())
         self.enemy_plane = EnemyAirPlaneModel(*ENEMY_PLANE_FIRST_POSITION)
         self.coin = CoinModel()
         self.life = LifeModel(WIDTH_SCREEN, HEIGHT_SCREEN / 2, True)
@@ -50,7 +50,7 @@ class BattleSceneFirst(SceneInterface):
             if self.key_board.key_pressed("SPACE"):
                 self.air_plane.shot()
                 self.shot_time = 1
-        if self.key_board.key_pressed("S") and self.hud.get_special() == 2:
+        if self.key_board.key_pressed("S") and self.hud.get_special() >= 4:
             self.hud.lose_special()
             self.air_plane.shot_special()
 
@@ -58,8 +58,7 @@ class BattleSceneFirst(SceneInterface):
             game_object.move(self.fps)
 
         if self.coin.collide(self.air_plane):
-            self.coin.points += 1
-            self.hud.add_points(self.coin.points)
+            self.hud.point.addPoint(1)
 
         if self.life.collide(self.air_plane):
             self.life.change_visibility()
@@ -98,7 +97,7 @@ class BattleSceneFirst(SceneInterface):
             game_object.draw()
 
         self.enemy_plane.get_life().draw()
-        self.hud.draw()  # deve ser o ultimo
+        self.hud.draw()
 
     def update(self, state):
         if not state:

@@ -11,7 +11,6 @@ class CoinModel(GameObjectInterface):
 
         self.coinAnimation.set_position(x, y)
         self.movimentation = movimentation
-        self.points = 0
 
     def draw(self):
         self.coinAnimation.draw()

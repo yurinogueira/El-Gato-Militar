@@ -1,9 +1,12 @@
+from PPlay.sprite import Sprite
 from src.hud.LifeHud import LifeHud
 from src.hud.PointHud import PointHud
 from src.hud.SpecialHud import SpecialHud
 from src.hud.TimeHud import TimeHud
 from src.hud.ShopHud import ShopHud
 from src.hud.MenuHud import MenuHud
+
+from constants import *
 
 
 class HudManager:
@@ -15,6 +18,25 @@ class HudManager:
         self.menu = MenuHud(window)
         self.life = LifeHud()
         self.special = SpecialHud()
+        self.special_choose = FIRE_BALL_BLUE
+
+    def get_special_look(self) -> tuple:
+        return self.special_choose
+
+    def set_special_look(self, index: int) -> bool:
+        if self.point.get_point() < 10:
+            return False
+
+        if index == 0:
+            self.special_choose = FIRE_BALL_BLUE
+        elif index == 1:
+            self.special_choose = FIRE_BALL_PINK
+        elif index == 2:
+            self.special_choose = TORPEDO
+        else:
+            self.special_choose = TORPEDO_BLACK
+        self.point.remove_point(10)
+        return True
 
     def draw(self):
         self.__update()

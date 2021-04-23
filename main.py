@@ -9,7 +9,12 @@ from constants import WINDOW_SIZE, FRAME_SPEED
 
 running = True
 window = Window(*WINDOW_SIZE)
+window.set_title("El Gato Militar")
 scene = MenuScene(window)
+
+
+def get_hud():
+    return scene.hud
 
 
 def change_scene(scene_key='Main'):

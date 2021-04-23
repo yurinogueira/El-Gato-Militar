@@ -35,7 +35,7 @@ class HomeScene(SceneInterface):
         for p in self.listPower:
             p.move(self.speed)
             if p.collide(self.cat):
-                self.coin.points += 1
+                self.hud.add_points(1)
 
     def draw(self, state):
         if state:
@@ -51,7 +51,6 @@ class HomeScene(SceneInterface):
         if not state:
             return
 
-        self.hud.add_points(self.coin.points)
         self.cat.move(self.speed)
         self.cat.update()
         for p in self.listPower:

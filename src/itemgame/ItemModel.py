@@ -1,7 +1,4 @@
-
-
 from PPlay.sprite import Sprite
-from constants import *
 from src.factory.Point import Point
 
 
@@ -15,7 +12,6 @@ class ItemModel:
         self.x = self.animation.x
         self.y = self.animation.y
         self.collided = False
-
 
     def collide(self, obj):
         l2 = Point(self.animation.x, self.animation.y)

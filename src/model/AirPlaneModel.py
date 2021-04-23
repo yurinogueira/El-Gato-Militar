@@ -6,14 +6,17 @@ from src.itemgame.ShotModel import ShotModel
 
 class AirPlaneModel(GameObjectInterface):
 
-    def __init__(self, x=300, y=HEIGHT_SCREEN / 2, sprite=JET_BLUE_FLY):
+    def __init__(self, x=300, y=HEIGHT_SCREEN / 2, sprite=JET_BLUE_FLY, shoot=FIRE_BALL_BLUE):
         self.animation = Sprite(*sprite)
         self.animation.set_loop(True)
         self.animation.set_total_duration(1000)
         self.animation.set_position(x, y)
         self.ground_limit = HEIGHT_SCREEN - self.animation.height
         self.shotModel = ShotModel(2000, 2000)
-        self.shotModel_special = ShotModel(2000, 2000, FIRE_BALL_BLUE)
+        self.shotModel_special = ShotModel(2000, 2000, shoot)
+
+    def set_special_look(self, sprite: Sprite):
+        self.shotModel_special.shot.animation = sprite
 
     def draw(self):
         self.animation.draw()
