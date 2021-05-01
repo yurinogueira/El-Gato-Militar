@@ -22,26 +22,48 @@ class BattleSceneFirst(SceneInterface):
         self.special = SpecialModel(WIDTH_SCREEN / 2, HEIGHT_SCREEN / 2, True)
         self.fps = 0
         self.point = 0
+        self.shot_time = 0.0
 
         self.game_objects = [self.background, self.enemy_plane, self.air_plane,
                              self.coin, self.life, self.special,
                              self.air_plane.get_shot(),
                              self.air_plane.get_shot_special(),
                              self.enemy_plane.get_shot()]
-        self.shot_enemy_time = 0.0
-        self.shot_time = 0.0
+        self.enemys = [self.enemy_plane]
+        self.enemy_shot_times = [0.0]
 
     def handle_event(self, fps, state):
         if not state:
             return
 
-        if self.point >= POINTS:
-            import main
-            main.change_scene('Select')
-
-        self.shot_enemy_time -= self.hud.get_window().delta_time()
         self.shot_time -= self.hud.get_window().delta_time()
         self.fps = fps
+
+        for i in range(len(self.enemys)):
+            self.enemy_shot_times[i] -= self.hud.get_window().delta_time()
+
+            if self.air_plane.get_shot().collide(self.enemys[i]):
+                self.point += 1
+
+                if self.point % 4 == 0:
+                    self.special.change_visibility(self.enemys[i].animation.x, self.enemys[i].animation.y)
+                if self.point % 5 == 0:
+                    self.life.change_visibility(self.enemys[i].animation.x, self.enemys[i].animation.y)
+
+                if (self.enemys[i].lifeModel.lose_life()) == 0:
+                    self.enemys[i].hidden()
+
+            if self.air_plane.get_shot_special().collide(self.enemys[i]):
+                self.point += 3
+                self.enemys[i].lifeModel.empty_life()
+                self.enemys[i].hidden()
+
+            if self.enemys[i].get_shot().collide(self.air_plane):
+                self.hud.lose_life()
+
+            if self.enemy_shot_times[i] <= 0.0:
+                self.enemys[i].can_shot(self.air_plane)
+                self.enemy_shot_times[i] = 2
 
         if self.key_board.key_pressed("UP"):  # Direcional ^
             self.air_plane.up(self.fps)
@@ -73,35 +95,14 @@ class BattleSceneFirst(SceneInterface):
             self.special.change_visibility()
             self.hud.add_special()
 
-        if self.air_plane.get_shot().collide(self.enemy_plane):
-            self.point += 1
-
-            if self.point % 4 == 0:
-                self.special.change_visibility(self.enemy_plane.animation.x, self.enemy_plane.animation.y)
-            if self.point % 5 == 0:
-                self.life.change_visibility(self.enemy_plane.animation.x, self.enemy_plane.animation.y)
-
-            if (self.enemy_plane.lifeModel.lose_life()) == 0:
-                self.enemy_plane.hidden()
-
-        if self.air_plane.get_shot_special().collide(self.enemy_plane):
-            self.point += 3
-            self.enemy_plane.lifeModel.empty_life()
-            self.enemy_plane.hidden()
-
-        if self.enemy_plane.get_shot().collide(self.air_plane):
-            self.hud.lose_life()
-
-        if self.shot_enemy_time <= 0.0:
-            self.enemy_plane.can_shot(self.air_plane)
-            self.shot_enemy_time = 2
-
     def draw(self, state):
 
         for game_object in self.game_objects:
             game_object.draw()
 
-        self.enemy_plane.get_life().draw()
+        for enemy in self.enemys:
+            enemy.get_life().draw()
+
         self.hud.draw()
 
         choose_color = NEAR_BLACK
@@ -120,6 +121,10 @@ class BattleSceneFirst(SceneInterface):
     def update(self, state):
         if not state:
             return
+
+        if self.point >= POINTS:
+            import main
+            main.change_scene('Select')
 
         for game_object in self.game_objects:
             game_object.update()

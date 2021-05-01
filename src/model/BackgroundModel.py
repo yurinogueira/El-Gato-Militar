@@ -1,6 +1,7 @@
 from PPlay.sprite import Sprite
 from src.interfaces.GameObjectInterface import GameObjectInterface
 
+
 class BackgroundModel(GameObjectInterface):
     def __init__(self, sprite):
         self.background_1 = Sprite(sprite)

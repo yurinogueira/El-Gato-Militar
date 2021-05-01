@@ -5,6 +5,7 @@ from src.scenes.HomeScene import HomeScene
 from src.scenes.SelectPlaneScene import SelectPlaneScene
 from src.scenes.BattleSceneFirst import BattleSceneFirst
 from src.scenes.BattleSceneSeccond import BattleSceneSeccond
+from src.scenes.BattleSceneFinal import BattleSceneFinal
 
 from constants import WINDOW_SIZE, FRAME_SPEED, TITLE
 
@@ -27,6 +28,7 @@ def change_scene(scene_key='Main'):
         'BattleFirst': BattleSceneFirst(scene.hud),
         'Select': SelectPlaneScene(scene.hud),
         'Home': HomeScene(scene.hud),
+        'Boss': BattleSceneFinal(scene.hud)
     }[scene_key]
 
 
