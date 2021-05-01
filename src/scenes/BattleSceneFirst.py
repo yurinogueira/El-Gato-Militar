@@ -1,5 +1,6 @@
 from constants import *
 from src.factory.Hud import HudManager
+from src.factory.Text import CenterText
 from src.interfaces.SceneInteface import SceneInterface
 from src.itemgame.LifeModel import LifeModel
 from src.itemgame.SpecialModel import SpecialModel
@@ -14,7 +15,7 @@ class BattleSceneFirst(SceneInterface):
         self.hud = hud
         self.key_board = hud.get_window().get_keyboard()
         self.background = BackgroundModel(BACKGROUND_BATTLE1)
-        self.air_plane = AirPlaneModel(shoot=self.hud.get_special_look())
+        self.air_plane = AirPlaneModel(shoot=self.hud.get_special_look(), sprite=self.hud.get_ship_look())
         self.enemy_plane = EnemyAirPlaneModel(*ENEMY_PLANE_FIRST_POSITION)
         self.coin = CoinModel()
         self.life = LifeModel(WIDTH_SCREEN, HEIGHT_SCREEN / 2, True)
@@ -33,6 +34,10 @@ class BattleSceneFirst(SceneInterface):
     def handle_event(self, fps, state):
         if not state:
             return
+
+        if self.point >= POINTS:
+            import main
+            main.change_scene('Select')
 
         self.shot_enemy_time -= self.hud.get_window().delta_time()
         self.shot_time -= self.hud.get_window().delta_time()
@@ -98,6 +103,19 @@ class BattleSceneFirst(SceneInterface):
 
         self.enemy_plane.get_life().draw()
         self.hud.draw()
+
+        choose_color = NEAR_BLACK
+
+        if 10 > self.point > 5:
+            choose_color = GOLD
+        elif 15 > self.point > 9:
+            choose_color = ORANGE
+        elif self.point > 15:
+            choose_color = GOLDEN
+
+        CenterText(self.hud.get_window(),
+                   self.hud.get_window().width / 2,
+                   30, choose_color, 64, "Pontos " + str(self.point)).draw()
 
     def update(self, state):
         if not state:

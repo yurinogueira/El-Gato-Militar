@@ -19,6 +19,13 @@ class HudManager:
         self.life = LifeHud()
         self.special = SpecialHud()
         self.special_choose = FIRE_BALL_BLUE
+        self.ship = JET_BLUE_FLY
+
+    def get_ship_look(self) -> tuple:
+        return self.ship
+
+    def set_ship_look(self, animation: tuple):
+        self.ship = animation
 
     def get_special_look(self) -> tuple:
         return self.special_choose

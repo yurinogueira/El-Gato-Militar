@@ -2,14 +2,16 @@ from PPlay.window import *
 
 from src.scenes.MenuScene import MenuScene
 from src.scenes.HomeScene import HomeScene
+from src.scenes.SelectPlaneScene import SelectPlaneScene
 from src.scenes.BattleSceneFirst import BattleSceneFirst
+from src.scenes.BattleSceneSeccond import BattleSceneSeccond
 
-from constants import WINDOW_SIZE, FRAME_SPEED
+from constants import WINDOW_SIZE, FRAME_SPEED, TITLE
 
 
 running = True
 window = Window(*WINDOW_SIZE)
-window.set_title("El Gato Militar")
+window.set_title(TITLE)
 scene = MenuScene(window)
 
 
@@ -19,12 +21,13 @@ def get_hud():
 
 def change_scene(scene_key='Main'):
     global scene
-    scenes = {
-        'Home': HomeScene(scene.hud),
+    scene = {
         'Main': MenuScene(window),
-        'Battle': BattleSceneFirst(scene.hud)
-    }
-    scene = scenes[scene_key]
+        'Battle': BattleSceneSeccond(scene.hud),
+        'BattleFirst': BattleSceneFirst(scene.hud),
+        'Select': SelectPlaneScene(scene.hud),
+        'Home': HomeScene(scene.hud),
+    }[scene_key]
 
 
 # Loop

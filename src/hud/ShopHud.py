@@ -61,7 +61,7 @@ class ShopHud:
             self.pink_fire_shop.draw()
             self.torpedo_shop_b.draw()
             self.torpedo_black_shop.draw()
-        else:
+        elif self.choose_skin[3]:
             self.blue_fire_shop.draw()
             self.pink_fire_shop.draw()
             self.torpedo_shop.draw()
@@ -85,23 +85,35 @@ class ShopHud:
         elif self.window.get_keyboard().key_pressed("ESCAPE"):
             main.running = True
             self.show_shop = False
-        elif self.__is_clicking_shop(self.blue_fire_shop, 0):
+        elif self.__is_clicking_shop(0):
             if main.get_hud().set_special_look(0):
                 self.choose_skin = [True, False, False, False]
-        elif self.__is_clicking_shop(self.pink_fire_shop, 1):
+        elif self.__is_clicking_shop(1):
             if main.get_hud().set_special_look(1):
                 self.choose_skin = [False, True, False, False]
-        elif self.__is_clicking_shop(self.torpedo_shop, 2):
+        elif self.__is_clicking_shop(2):
             if main.get_hud().set_special_look(2):
                 self.choose_skin = [False, False, True, False]
-        elif self.__is_clicking_shop(self.torpedo_black_shop, 3):
+        elif self.__is_clicking_shop(3):
             if main.get_hud().set_special_look(3):
                 self.choose_skin = [False, False, False, True]
 
     def __is_clicking(self, button: GameImage):
         return self.mouse.is_over_object(button) and self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT)
 
-    def __is_clicking_shop(self, button: GameImage, pos: int):
-        if self.mouse.is_over_object(button) and self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT):
-            return not self.choose_skin[pos]
+    def __is_clicking_shop(self, pos: int):
+        if self.choose_skin[pos]:
+            return False
+        if pos == 0:
+            if self.mouse.is_over_area((480, 250), (800, 330)) and self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT):
+                return True
+        elif pos == 1:
+            if self.mouse.is_over_area((480, 331), (800, 410)) and self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT):
+                return True
+        elif pos == 2:
+            if self.mouse.is_over_area((480, 411), (800, 480)) and self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT):
+                return True
+        else:
+            if self.mouse.is_over_area((480, 481), (800, 560)) and self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT):
+                return True
         return False

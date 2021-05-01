@@ -5,36 +5,33 @@ from PPlay.sound import Sound
 
 # Tuples
 WIDTH_SCREEN = 1280
+WIDTH_DIV = WIDTH_SCREEN / 2
 HEIGHT_SCREEN = 720
+HEIGHT_DIV = HEIGHT_SCREEN / 2
 WINDOW_SIZE = (WIDTH_SCREEN, HEIGHT_SCREEN)
 
 # environment
 TITLE = "El Gato Militar"
 GROUND = HEIGHT_SCREEN - 400
-POINTS = 60
+POINTS = 20
 TIME = 60
 JUMP_MAX = 150
 FRAME_SPEED = 200
-GENERATED_POINTS = 60
+GENERATED_POINTS = 120
 ENEMY_PLANE_FIRST_POSITION = (700, 300)
+ENEMY_PLANE_SECCOND_POSITION = (200, 450)
 
 # Colors
-GRAY                    = (100, 100, 100)
-NAVY_BLUE               = ( 60,  60, 100)
 WHITE                   = (255, 255, 255)
-RED                     = (255,   0,   0)
-GREEN                   = (  0, 255,   0)
 FOREST_GREEN            = ( 31, 162,  35)
-BLUE                    = (  0,   0, 255)
 SKY_BLUE                = ( 39, 145, 251)
-YELLOW                  = (255, 255,   0)
 ORANGE                  = (255, 128,   0)
 PURPLE                  = (255,   0, 255)
-CYAN                    = (  0, 255, 255)
 BLACK                   = (  0,   0,   0)
 NEAR_BLACK              = ( 19,  15,  48)
 COM_BLUE                = (233, 232, 255)
 GOLD                    = (255, 215,   0)
+GOLDEN                  = (230,  89,  35)
 
 # Paths
 ROOT_PATH = os.path.dirname(__file__)
