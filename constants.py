@@ -2,7 +2,6 @@ import os
 
 from PPlay.sound import Sound
 
-
 # Tuples
 WIDTH_SCREEN = 1280
 WIDTH_DIV = WIDTH_SCREEN / 2
@@ -22,16 +21,16 @@ ENEMY_PLANE_FIRST_POSITION = (700, 300)
 ENEMY_PLANE_SECCOND_POSITION = (200, 450)
 
 # Colors
-WHITE                   = (255, 255, 255)
-FOREST_GREEN            = ( 31, 162,  35)
-SKY_BLUE                = ( 39, 145, 251)
-ORANGE                  = (255, 128,   0)
-PURPLE                  = (255,   0, 255)
-BLACK                   = (  0,   0,   0)
-NEAR_BLACK              = ( 19,  15,  48)
-COM_BLUE                = (233, 232, 255)
-GOLD                    = (255, 215,   0)
-GOLDEN                  = (230,  89,  35)
+WHITE = (255, 255, 255)
+FOREST_GREEN = (31, 162, 35)
+SKY_BLUE = (39, 145, 251)
+ORANGE = (255, 128, 0)
+PURPLE = (255, 0, 255)
+BLACK = (0, 0, 0)
+NEAR_BLACK = (19, 15, 48)
+COM_BLUE = (233, 232, 255)
+GOLD = (255, 215, 0)
+GOLDEN = (230, 89, 35)
 
 # Paths
 ROOT_PATH = os.path.dirname(__file__)
@@ -66,24 +65,17 @@ CAT_SPRITE_IDLE_FLIPED = (os.path.join(CAT_SPRITE_PATH, 'cat_idle_fliped.png'), 
 CAT_SPRITE_HURT = (os.path.join(CAT_SPRITE_PATH, 'cat_hurt.png'), 10)
 CAT_SPRITE_DEAD = (os.path.join(CAT_SPRITE_PATH, 'cat_dead.png'), 10)
 
+# Enemy
+PLUS_JET_ENEMY_RED_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_red_fly.png'), 2)
+
 # Sprites
 # AIRPLANE
 JET_BLUE_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'jet_blue_fly.png'), 2)
 JET_GREEN_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'jet_green_fly.png'), 2)
-JET_RED_FLY	= (os.path.join(AIRPLANE_SPRITE_PATH, 'jet_red_fly.png'), 2)
 JET_YELLOW_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'jet_yellow_fly.png'), 2)
-PLANE_BLUE_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_blue_fly.png'), 2)
 PLANE_PINK_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_pink_fly.png'), 2)
-PLANE_RED_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_red_fly.png'), 2)
-PLANE_YELLOW = (os.path.join(AIRPLANE_SPRITE_PATH, 'plane_yellow.png'), 2)
-PLUSJET_BLUE_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_blue_fly.png'), 2)
-PLUSJET_GREEN_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_green_fly.png'), 2)
-PLUSJET_YELLOW_FLY = (os.path.join(AIRPLANE_SPRITE_PATH, 'plusjet_yellow_fly.png'), 2)
 
-#ENEMY
-PLUSJET_RED_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_red_fly.png'), 2)
-
-#BULLET
+# BULLET
 FIRE_BALL = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball.png'), 1)
 FIRE_BALL_REVERSE = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_reverse.png'), 1)
 FIRE_BALL_BLUE = (os.path.join(BULLET_SPRITE_PATH, 'fire_ball_blue.png'), 1)

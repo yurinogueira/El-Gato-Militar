@@ -7,7 +7,7 @@ from src.model.AirPlaneModel import AirPlaneModel
 
 
 class EnemyAirPlaneModel(AirPlaneModel):
-    def __init__(self, x, y, sprite=PLUSJET_RED_FLY):
+    def __init__(self, x, y, sprite=PLUS_JET_ENEMY_RED_FLY):
         super().__init__(x, y, sprite)
         self.move_plane = 0
         self.is_hidden = False

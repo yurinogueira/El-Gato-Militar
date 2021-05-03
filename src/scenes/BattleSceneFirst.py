@@ -66,13 +66,13 @@ class BattleSceneFirst(SceneInterface):
                 self.enemy_shot_times[i] = 2
 
         if self.key_board.key_pressed("UP"):  # Direcional ^
-            self.air_plane.up(self.fps)
+            self.air_plane.up(self.fps * 2)
         if self.key_board.key_pressed("DOWN"):
-            self.air_plane.down(self.fps)
+            self.air_plane.down(self.fps * 2)
         if self.key_board.key_pressed("RIGHT"):
-            self.air_plane.forward(self.fps)
+            self.air_plane.forward(self.fps * 2)
         if self.key_board.key_pressed("LEFT"):
-            self.air_plane.backward(self.fps)
+            self.air_plane.backward(self.fps * 2)
         if self.shot_time <= 0.0:
             if self.key_board.key_pressed("SPACE"):
                 self.air_plane.shot()
