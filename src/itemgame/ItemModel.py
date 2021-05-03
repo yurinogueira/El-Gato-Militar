@@ -3,11 +3,11 @@ from src.factory.Point import Point
 
 
 class ItemModel:
-    def __init__(self, *sprite):
+    def __init__(self, *sprite, x=0, y=0):
         self.animation = Sprite(*sprite[0])
         self.animation.set_total_duration(1000)
-        self.__setPosition_x = 0
-        self.__setPosition_y = 0
+        self.__setPosition_x = x
+        self.__setPosition_y = y
         self.animation.set_position(self.__setPosition_x, self.__setPosition_y)
         self.x = self.animation.x
         self.y = self.animation.y
