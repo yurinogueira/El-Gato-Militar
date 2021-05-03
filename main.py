@@ -1,4 +1,5 @@
 from PPlay.window import *
+from src.scenes.BattleDesertScene import BattleDesertScene
 
 from src.scenes.MenuScene import MenuScene
 from src.scenes.HomeScene import HomeScene
@@ -28,7 +29,8 @@ def change_scene(scene_key='Main'):
         'BattleFirst': BattleSceneFirst(scene.hud),
         'Select': SelectPlaneScene(scene.hud),
         'Home': HomeScene(scene.hud),
-        'Boss': BattleSceneFinal(scene.hud)
+        'Boss': BattleSceneFinal(scene.hud),
+        'Desert': BattleDesertScene(scene.hud)
     }[scene_key]
 
 
