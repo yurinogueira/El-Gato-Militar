@@ -61,6 +61,7 @@ class EnemyAirPlaneModel(AirPlaneModel):
 
     def can_shot(self, airplane: AirPlaneModel):
         if abs(self.animation.y - airplane.animation.y) < 150 and not self.is_hidden:
+            PLANE_LASER_SHOTS.play()
             self.shot()
 
     def get_shot(self):

@@ -80,6 +80,7 @@ class ShopHud:
     def update(self):
         import main
         if self.__is_clicking(self.button):
+            BUTTON_SOUND.play()
             main.running = False
             self.show_shop = True
         elif self.window.get_keyboard().key_pressed("ESCAPE"):

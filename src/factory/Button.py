@@ -1,6 +1,6 @@
 from PPlay.gameimage import GameImage
 from constants import NORMAL_BUTTON, NEAR_BLACK, ORANGE
-from constants import HOVER_BUTTON
+from constants import HOVER_BUTTON, BUTTON_SOUND
 from src.factory.Text import CenterText
 
 
@@ -34,6 +34,7 @@ class Button:
     def is_button_pressed(self):
         if self.is_button_press:
             self.is_button_press = False
+            BUTTON_SOUND.play()
             return True
         return False
 

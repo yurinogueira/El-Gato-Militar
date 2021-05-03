@@ -47,6 +47,7 @@ class AirPlaneModel(GameObjectInterface):
         self.animation.x += fps
 
     def shot(self, shot=None):
+        PLANE_LASER_SHOTS.play()
         if shot is None:
             shot = self.shotModel
         if shot.shotAnimation.x == 2000:

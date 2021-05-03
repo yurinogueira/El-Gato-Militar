@@ -1,4 +1,3 @@
-from PPlay.sprite import Sprite
 from src.hud.LifeHud import LifeHud
 from src.hud.PointHud import PointHud
 from src.hud.SpecialHud import SpecialHud
