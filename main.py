@@ -15,10 +15,12 @@ from constants import WINDOW_SIZE, FRAME_SPEED, TITLE
 
 
 running = True
+
 window = Window(*WINDOW_SIZE)
 window.set_title(TITLE)
+window.sound = SoundControl()
+
 scene = MenuScene(window)
-sound_control = SoundControl()
 
 
 def get_hud():
@@ -47,6 +49,6 @@ while True:
     scene.draw(running)
     scene.update(running)
 
-    sound_control.play_music(scene.__class__.__name__)
+    window.sound.play_music(scene.__class__.__name__)
 
     window.update()

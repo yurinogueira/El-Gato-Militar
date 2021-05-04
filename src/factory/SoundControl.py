@@ -4,6 +4,8 @@ from constants import *
 class SoundControl:
     def __init__(self):
         self.old_scene = 'MenuScene'
+        self.is_enabled = True
+
         self.menu_music = MENU_LOOP_SOUND
         self.battle_music = SIMPLE_BATTLE_SOUND
         self.double_music = DOUBLE_BATTLE_SOUND
@@ -14,7 +16,18 @@ class SoundControl:
         self.double_music.set_repeat(True)
         self.mega_battle_music.stop()
 
+    def get_sound_state(self) -> bool:
+        return self.is_enabled
+
+    def change_sound_state(self):
+        self.is_enabled = not self.is_enabled
+
     def play_music(self, class_name: str):
+        if not self.get_sound_state():
+            self.menu_music.pause()
+        else:
+            self.menu_music.unpause()
+
         if self.old_scene != class_name:
             self.old_scene = class_name
             self.menu_music.stop()

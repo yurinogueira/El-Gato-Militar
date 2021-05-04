@@ -94,6 +94,9 @@ POWER_UP_LIFE = (os.path.join(POWER_UP_SPRITE_PATH, 'life.png'), 1)
 POWER_UP_ENERGY = (os.path.join(POWER_UP_SPRITE_PATH, 'energy.png'), 1)
 
 # HUD
+SOUND_BACKGROUND = os.path.join(HUD_PATH, 'bar_empty.png')
+SOUND_ENABLE = os.path.join(HUD_PATH, 'sound_enable.png')
+SOUND_DISABLED = os.path.join(HUD_PATH, 'sound_disabled.png')
 POINTS_HUD = os.path.join(HUD_PATH, 'bar_points.png')
 TIME_HUD = os.path.join(HUD_PATH, 'bar_time.png')
 LIFE_HUD = os.path.join(HUD_PATH, 'bar_life.png')
