@@ -10,7 +10,6 @@ from src.interfaces.SceneInteface import SceneInterface
 
 
 class MenuScene(SceneInterface):
-
     def __init__(self, window):
         self.hud = HudManager(window)
         self.window = window
@@ -20,11 +19,13 @@ class MenuScene(SceneInterface):
 
     def handle_event(self, speed, state):
         if self.jogar_button.is_button_pressed():
+            MENU_LOOP_SOUND.stop()
             import main
             main.change_scene('BattleFirst')
         elif self.sair_button.is_button_pressed():
             pygame.display.quit()
             pygame.quit()
+            exit()
 
     def draw(self, state):
         self.fundo.draw()

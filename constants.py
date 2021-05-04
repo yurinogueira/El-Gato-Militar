@@ -124,3 +124,6 @@ TORPEDO_BLACK_SHOP_B = os.path.join(HUD_PATH, 'torpedo_black_shop_b.png')
 COIN_SOUND = Sound(os.path.join(SOUND_PATH, 'coin_pickup.ogg'))
 PLANE_LASER_SHOTS = Sound(os.path.join(SOUND_PATH, 'plane_shoot.ogg'))
 BUTTON_SOUND = Sound(os.path.join(SOUND_PATH, 'button.ogg'))
+
+MENU_LOOP_SOUND = Sound(os.path.join(SOUND_PATH, 'menu_loop_sound.ogg'))
+MENU_LOOP_SOUND.set_repeat(True)

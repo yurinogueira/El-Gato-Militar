@@ -9,7 +9,7 @@ from src.scenes.BattleSceneFinal import BattleSceneFinal
 from src.scenes.BattleDesertScene import BattleDesertScene
 from src.scenes.BattleSpaceScene import BattleSpaceScene
 
-from constants import WINDOW_SIZE, FRAME_SPEED, TITLE
+from constants import WINDOW_SIZE, FRAME_SPEED, TITLE, MENU_LOOP_SOUND
 
 
 running = True
@@ -38,6 +38,9 @@ def change_scene(scene_key='Main'):
 
 # Loop
 while True:
+    if not MENU_LOOP_SOUND.is_playing() and scene.__class__.__name__ == 'MenuScene':
+        MENU_LOOP_SOUND.play()
+
     SPEED_PER_FRAME = FRAME_SPEED * window.delta_time()
 
     scene.handle_event(SPEED_PER_FRAME, running)
