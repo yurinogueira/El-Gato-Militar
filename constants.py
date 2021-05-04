@@ -52,8 +52,11 @@ BULLET_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'bullets')
 BACKGROUND_HOME = os.path.join(BACKGROUND_PATH, 'home.png')
 BACKGROUND_BATTLE1 = os.path.join(BACKGROUND_PATH, 'battle1.png')
 BACKGROUND_DESERT = os.path.join(BACKGROUND_PATH, 'desert.png')
+BACKGROUND_SPACE = os.path.join(BACKGROUND_PATH, 'space.jpeg')
 
 # Sprites
+BLACK_HOLE = (os.path.join(os.path.sep, SPRITES_PATH, 'black-hole.png'), 4)
+
 # CAT
 CAT_SPRITE_WALK = (os.path.join(CAT_SPRITE_PATH, 'cat_walk.png'), 10)
 CAT_SPRITE_WALK_FLIPED = (os.path.join(CAT_SPRITE_PATH, 'cat_walk_fliped.png'), 10)

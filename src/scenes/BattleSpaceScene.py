@@ -1,20 +1,21 @@
 from constants import *
 
 from src.factory.Hud import HudManager
+from src.itemgame.BlackHoleModel import BlackHoleModel
 from src.model.BackgroundModel import BackgroundModel
 from src.model.EnemyAirPlaneModel import EnemyAirPlaneModel
 
 from src.scenes.BattleSceneFirst import BattleSceneFirst
 
 
-class BattleDesertScene(BattleSceneFirst):
+class BattleSpaceScene(BattleSceneFirst):
     def __init__(self, hud: HudManager):
         super().__init__(hud)
-        self.background = BackgroundModel(BACKGROUND_DESERT)
+        self.background = BackgroundModel(BACKGROUND_SPACE)
         self.enemy_plane_two = EnemyAirPlaneModel(*ENEMY_PLANE_SECCOND_POSITION)
-
+        self.blackHole = BlackHoleModel(WIDTH_SCREEN / 2,0)
         self.game_objects = [self.background, self.enemy_plane, self.enemy_plane_two, self.air_plane,
-                             self.coin, self.life, self.special,
+                             self.coin, self.life, self.special, self.blackHole,
                              self.air_plane.get_shot(), self.air_plane.get_shot_special(),
                              self.enemy_plane.get_shot(), self.enemy_plane_two.get_shot()]
 
@@ -26,26 +27,7 @@ class BattleDesertScene(BattleSceneFirst):
 
     def handle_event(self, fps, state):
         super().handle_event(fps, state)
-        self.count += 1
-
-        if self.count % 60 == 0:
-            self.count = 0
-            self.wind += 0.1
-
-        if self.backward:
-            self.background.move(-fps*2)
-            if self.wind >= 1.3:
-                self.wind = 0.5
-                self.backward = False
-
-            self.air_plane.backward(self.fps * self.wind)
-        else:
-            self.background.move(fps*1)
-            if self.wind >= 1.3:
-                self.wind = 0.5
-                self.backward = True
-
-            self.air_plane.forward(self.fps * self.wind)
+        self.blackHole.draw()
 
     def update(self, state):
         if not state:
