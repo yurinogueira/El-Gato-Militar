@@ -13,7 +13,7 @@ class BattleSpaceScene(BattleSceneFirst):
         super().__init__(hud)
         self.background = BackgroundModel(BACKGROUND_SPACE)
         self.enemy_plane_two = EnemyAirPlaneModel(*ENEMY_PLANE_SECCOND_POSITION)
-        self.blackHole = BlackHoleModel(WIDTH_SCREEN / 2,0)
+        self.blackHole = BlackHoleModel(WIDTH_SCREEN / 2, 0)
         self.game_objects = [self.background, self.enemy_plane, self.enemy_plane_two, self.air_plane,
                              self.coin, self.life, self.special, self.blackHole,
                              self.air_plane.get_shot(), self.air_plane.get_shot_special(),
@@ -27,6 +27,8 @@ class BattleSpaceScene(BattleSceneFirst):
 
     def handle_event(self, fps, state):
         super().handle_event(fps, state)
+        self.blackHole.attraction(self.air_plane)
+        self.blackHole.collide(self.air_plane)
         self.blackHole.draw()
 
     def update(self, state):
@@ -39,3 +41,4 @@ class BattleSpaceScene(BattleSceneFirst):
 
         for game_object in self.game_objects:
             game_object.update()
+        self.blackHole.update()

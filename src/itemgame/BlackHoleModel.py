@@ -10,8 +10,9 @@ class BlackHoleModel(GameObjectInterface):
     def __init__(self, x: int, y: int):
         self.blackhole = ItemModel(BLACK_HOLE)
         self.blackholeAnimation = self.blackhole.animation
-        self.blackholeAnimation.set_position(x, 20 )
-        self.middle = self.blackhole.x + (self.blackholeAnimation.width / 2)
+
+        self.blackholeAnimation.set_position(x, 20)
+        self.middle = self.blackholeAnimation.x + (self.blackholeAnimation.width / 2)
 
     def draw(self):
         self.blackholeAnimation.draw()
@@ -22,12 +23,16 @@ class BlackHoleModel(GameObjectInterface):
     def move(self, fps: int):
         pass
 
-    def attraction(self, obj:AirPlaneModel):
-        if obj.animation.x <= self.middle:
-            obj.forward(0.1)
-        elif obj.animation.x > self.middle:
-            obj.backward(0.1)
+    def collide(self, obj:AirPlaneModel):
+        self.blackhole.collide(obj)
 
-        if obj.animation.y > self.y:
-            obj.update(0.05)
+    def attraction(self, obj:AirPlaneModel):
+        G = 2.5
+        if int(obj.animation.x) <= int(self.middle):
+            obj.forward(G)
+        elif int(obj.animation.x) > int(self.middle):
+            obj.backward(G)
+
+        if obj.animation.y > self.blackholeAnimation.y:
+            obj.up(G)
 

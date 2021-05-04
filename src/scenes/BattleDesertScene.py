@@ -20,7 +20,7 @@ class BattleDesertScene(BattleSceneFirst):
 
         self.enemys = [self.enemy_plane, self.enemy_plane_two]
         self.enemy_shot_times = [0.0, 0.0]
-        self.backward = True
+        self.backward = False
         self.count = 0
         self.wind = 0.5
 
