@@ -19,7 +19,6 @@ class MenuScene(SceneInterface):
 
     def handle_event(self, speed, state):
         if self.jogar_button.is_button_pressed():
-            MENU_LOOP_SOUND.stop()
             import main
             main.change_scene('BattleFirst')
         elif self.sair_button.is_button_pressed():

@@ -126,4 +126,6 @@ PLANE_LASER_SHOTS = Sound(os.path.join(SOUND_PATH, 'plane_shoot.ogg'))
 BUTTON_SOUND = Sound(os.path.join(SOUND_PATH, 'button.ogg'))
 
 MENU_LOOP_SOUND = Sound(os.path.join(SOUND_PATH, 'menu_loop_sound.ogg'))
-MENU_LOOP_SOUND.set_repeat(True)
+SIMPLE_BATTLE_SOUND = Sound(os.path.join(SOUND_PATH, 'simple_battle_music.ogg'))
+DOUBLE_BATTLE_SOUND = Sound(os.path.join(SOUND_PATH, 'double_battle_music.ogg'))
+MEGA_BATTLE_MUSIC = Sound(os.path.join(SOUND_PATH, 'mega_battle_music.ogg'))

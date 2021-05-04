@@ -53,7 +53,7 @@ class BattleDesertScene(BattleSceneFirst):
 
         if self.point >= POINTS * 3:
             import main
-            main.change_scene('Main')
+            main.change_scene('BattleSpaceScene')
 
         for game_object in self.game_objects:
             game_object.update()
