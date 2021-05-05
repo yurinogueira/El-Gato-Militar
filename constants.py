@@ -54,6 +54,7 @@ BACKGROUND_BATTLE1 = os.path.join(BACKGROUND_PATH, 'battle1.png')
 BACKGROUND_DESERT = os.path.join(BACKGROUND_PATH, 'desert.png')
 BACKGROUND_SPACE = os.path.join(BACKGROUND_PATH, 'space.jpeg')
 BACKGROUND_WAR = os.path.join(BACKGROUND_PATH, 'war.png')
+BACKGROUND_CITY = os.path.join(BACKGROUND_PATH, 'city.png')
 
 # Sprites
 BLACK_HOLE = (os.path.join(os.path.sep, SPRITES_PATH, 'black-hole.png'), 4)

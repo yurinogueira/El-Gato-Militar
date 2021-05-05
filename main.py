@@ -8,6 +8,7 @@ from src.scenes.BattleSceneSeccond import BattleSceneSeccond
 from src.scenes.BattleSceneFinal import BattleSceneFinal
 from src.scenes.BattleDesertScene import BattleDesertScene
 from src.scenes.BattleSpaceScene import BattleSpaceScene
+from src.scenes.BattleCityScene import BattleCityScene
 
 from src.factory.SoundControl import SoundControl
 
@@ -37,7 +38,8 @@ def change_scene(scene_key='Main'):
         'Home': HomeScene(scene.hud),
         'Boss': BattleSceneFinal(scene.hud),
         'Desert': BattleDesertScene(scene.hud),
-        'Space': BattleSpaceScene(scene.hud)
+        'Space': BattleSpaceScene(scene.hud),
+        'City': BattleCityScene(scene.hud)
     }[scene_key]
 
 
