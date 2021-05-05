@@ -42,6 +42,7 @@ class ShopHud:
 
         self.choose_skin = [True, False, False, False]
 
+        self.time_delay = 0
         self.points = 0
         self.show_shop = False
 
@@ -80,8 +81,8 @@ class ShopHud:
     def update(self):
         if self.__is_clicking(self.button):
             BUTTON_SOUND.play()
-            self.window.main_scene.running = False
-            self.show_shop = True
+            self.window.main_scene.running = not self.window.main_scene.running
+            self.show_shop = not self.show_shop
         elif self.window.get_keyboard().key_pressed("ESCAPE"):
             self.window.main_scene.running = True
             self.show_shop = False
@@ -99,7 +100,12 @@ class ShopHud:
                 self.choose_skin = [False, False, False, True]
 
     def __is_clicking(self, button: GameImage):
-        return self.mouse.is_over_object(button) and self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT)
+        self.time_delay -= self.window.delta_time()
+        if self.mouse.is_over_object(button) and self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT):
+            if self.time_delay <= 0:
+                self.time_delay = 0.5
+                return True
+        return False
 
     def __is_clicking_shop(self, pos: int):
         if self.choose_skin[pos]:

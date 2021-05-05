@@ -58,6 +58,7 @@ BACKGROUND_CITY = os.path.join(BACKGROUND_PATH, 'city.png')
 
 # Sprites
 BLACK_HOLE = (os.path.join(os.path.sep, SPRITES_PATH, 'black-hole.png'), 4)
+EXPLOSION = (os.path.join(os.path.sep, SPRITES_PATH, 'explosion.png'), 5)
 
 # CAT
 CAT_SPRITE_WALK = (os.path.join(CAT_SPRITE_PATH, 'cat_walk.png'), 10)

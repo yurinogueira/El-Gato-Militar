@@ -28,6 +28,9 @@ class LifeHud:
             self.value.set_curr_frame(self.__checkLife(point))
         return point
 
+    def is_empty_life(self):
+        return self.value.curr_frame == 0
+
     def empty_life(self):
         self.value.set_curr_frame(0)
 

@@ -11,6 +11,7 @@ from src.scenes.BattleSceneFinal import BattleSceneFinal
 from src.scenes.BattleDesertScene import BattleDesertScene
 from src.scenes.BattleSpaceScene import BattleSpaceScene
 from src.scenes.BattleCityScene import BattleCityScene
+from src.scenes.GameOverScene import GameOverScene
 
 from constants import WINDOW_SIZE, FRAME_SPEED, TITLE
 
@@ -39,7 +40,8 @@ class Main:
             'Boss': BattleSceneFinal(self.get_hud()),
             'Desert': BattleDesertScene(self.get_hud()),
             'Space': BattleSpaceScene(self.get_hud()),
-            'City': BattleCityScene(self.get_hud())
+            'City': BattleCityScene(self.get_hud()),
+            'Over': GameOverScene(self.get_hud())
         }[scene_key]
 
     def start(self):
