@@ -78,12 +78,7 @@ class ButtonClick(Button):
         self.debug_time -= self.window.delta_time()
         if self.mouse.is_over_object(self.button):
             if not self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT):
-                self.is_normal = False
                 self.is_button_press = False
             elif self.debug_time <= 0:
                 self.debug_time = 1
                 self.is_button_press = True
-                self.is_normal = False
-        elif not self.is_normal:
-            self.is_normal = True
-            self.is_button_press = False

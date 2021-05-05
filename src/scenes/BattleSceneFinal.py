@@ -16,7 +16,7 @@ class BattleSceneFinal(BattleSceneFirst):
 
         self.enemy_plane_two = EnemyAirPlaneModel(*ENEMY_PLANE_SECCOND_POSITION)
 
-        self.game_objects = [ self.enemy_plane, self.enemy_plane_two, self.air_plane,
+        self.game_objects = [self.enemy_plane, self.enemy_plane_two, self.air_plane,
                              self.coin, self.life, self.special,
                              self.air_plane.get_shot(), self.air_plane.get_shot_special(),
                              self.enemy_plane.get_shot(), self.enemy_plane_two.get_shot()]
@@ -33,8 +33,7 @@ class BattleSceneFinal(BattleSceneFirst):
             return
         self.background.update()
         if self.point >= POINTS * 3:
-            import main
-            main.change_scene('BattleDesertScene')
+            self.hud.get_window().main_scene.change_scene('Desert')
 
         for game_object in self.game_objects:
             game_object.update()

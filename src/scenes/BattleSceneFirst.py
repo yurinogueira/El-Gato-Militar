@@ -123,8 +123,7 @@ class BattleSceneFirst(SceneInterface):
             return
 
         if self.point >= POINTS:
-            import main
-            main.change_scene('Select')
+            self.hud.get_window().main_scene.change_scene('Select')
 
         for game_object in self.game_objects:
             game_object.update()

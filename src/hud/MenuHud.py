@@ -26,15 +26,14 @@ class MenuHud:
             self.return_button.draw()
 
     def update(self):
-        import main
         if self.window.get_mouse().is_button_pressed(1) and self.window.get_mouse().is_over_object(self.button):
             BUTTON_SOUND.play()
-            main.running = False
+            self.window.main_scene.running = False
             self.show_menu = True
         elif self.window.get_keyboard().key_pressed("ESCAPE") or self.return_button.is_button_pressed():
-            main.running = True
+            self.window.main_scene.running = True
             self.show_menu = False
         elif self.menu_button.is_button_pressed():
-            main.running = True
+            self.window.main_scene.running = True
             self.show_menu = False
-            main.change_scene()
+            self.window.main_scene.change_scene()

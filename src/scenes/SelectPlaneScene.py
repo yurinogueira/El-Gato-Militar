@@ -77,5 +77,4 @@ class SelectPlaneScene(SceneInterface):
 
     def update(self, state: bool):
         if self.select:
-            import main
-            main.change_scene('Home')
+            self.window.main_scene.change_scene('Home')

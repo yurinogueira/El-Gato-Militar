@@ -78,25 +78,24 @@ class ShopHud:
             self.draw_shop()
 
     def update(self):
-        import main
         if self.__is_clicking(self.button):
             BUTTON_SOUND.play()
-            main.running = False
+            self.window.main_scene.running = False
             self.show_shop = True
         elif self.window.get_keyboard().key_pressed("ESCAPE"):
-            main.running = True
+            self.window.main_scene.running = True
             self.show_shop = False
         elif self.__is_clicking_shop(0):
-            if main.get_hud().set_special_look(0):
+            if self.window.main_scene.get_hud().set_special_look(0):
                 self.choose_skin = [True, False, False, False]
         elif self.__is_clicking_shop(1):
-            if main.get_hud().set_special_look(1):
+            if self.window.main_scene.get_hud().set_special_look(1):
                 self.choose_skin = [False, True, False, False]
         elif self.__is_clicking_shop(2):
-            if main.get_hud().set_special_look(2):
+            if self.window.main_scene.get_hud().set_special_look(2):
                 self.choose_skin = [False, False, True, False]
         elif self.__is_clicking_shop(3):
-            if main.get_hud().set_special_look(3):
+            if self.window.main_scene.get_hud().set_special_look(3):
                 self.choose_skin = [False, False, False, True]
 
     def __is_clicking(self, button: GameImage):

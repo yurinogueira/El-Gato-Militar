@@ -1,5 +1,7 @@
 from PPlay.window import *
 
+from src.factory.SoundControl import SoundControl
+
 from src.scenes.MenuScene import MenuScene
 from src.scenes.HomeScene import HomeScene
 from src.scenes.SelectPlaneScene import SelectPlaneScene
@@ -10,47 +12,47 @@ from src.scenes.BattleDesertScene import BattleDesertScene
 from src.scenes.BattleSpaceScene import BattleSpaceScene
 from src.scenes.BattleCityScene import BattleCityScene
 
-from src.factory.SoundControl import SoundControl
-
 from constants import WINDOW_SIZE, FRAME_SPEED, TITLE
 
 
-running = True
+class Main:
+    def __init__(self):
+        self.running = True
 
-window = Window(*WINDOW_SIZE)
-window.set_title(TITLE)
-window.sound = SoundControl()
+        self.window = Window(*WINDOW_SIZE)
+        self.window.set_title(TITLE)
+        self.window.sound = SoundControl()
+        self.window.main_scene = self
 
-scene = MenuScene(window)
+        self.scene = MenuScene(self.window)
+
+    def get_hud(self):
+        return self.scene.hud
+
+    def change_scene(self, scene_key='Main'):
+        self.scene = {
+            'Main': MenuScene(self.window),
+            'Battle': BattleSceneSeccond(self.get_hud()),
+            'BattleFirst': BattleSceneFirst(self.get_hud()),
+            'Select': SelectPlaneScene(self.get_hud()),
+            'Home': HomeScene(self.get_hud()),
+            'Boss': BattleSceneFinal(self.get_hud()),
+            'Desert': BattleDesertScene(self.get_hud()),
+            'Space': BattleSpaceScene(self.get_hud()),
+            'City': BattleCityScene(self.get_hud())
+        }[scene_key]
+
+    def start(self):
+        while True:
+            fps = FRAME_SPEED * self.window.delta_time()
+
+            self.scene.handle_event(fps, self.running)
+            self.scene.draw(self.running)
+            self.scene.update(self.running)
+
+            self.window.sound.play_music(self.scene.__class__.__name__)
+            self.window.update()
 
 
-def get_hud():
-    return scene.hud
-
-
-def change_scene(scene_key='Main'):
-    global scene
-    scene = {
-        'Main': MenuScene(window),
-        'Battle': BattleSceneSeccond(scene.hud),
-        'BattleFirst': BattleSceneFirst(scene.hud),
-        'Select': SelectPlaneScene(scene.hud),
-        'Home': HomeScene(scene.hud),
-        'Boss': BattleSceneFinal(scene.hud),
-        'Desert': BattleDesertScene(scene.hud),
-        'Space': BattleSpaceScene(scene.hud),
-        'City': BattleCityScene(scene.hud)
-    }[scene_key]
-
-
-# Loop
-while True:
-    SPEED_PER_FRAME = FRAME_SPEED * window.delta_time()
-
-    scene.handle_event(SPEED_PER_FRAME, running)
-    scene.draw(running)
-    scene.update(running)
-
-    window.sound.play_music(scene.__class__.__name__)
-
-    window.update()
+main_class = Main()
+main_class.start()

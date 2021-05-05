@@ -30,8 +30,7 @@ class MenuScene(SceneInterface):
     def handle_event(self, speed, state):
         if not self.is_option:
             if self.jogar_button.is_button_pressed():
-                import main
-                main.change_scene('BattleFirst')
+                self.window.main_scene.change_scene('BattleFirst')
             elif self.sair_button.is_button_pressed():
                 pygame.display.quit()
                 pygame.quit()
@@ -41,7 +40,7 @@ class MenuScene(SceneInterface):
         else:
             if self.voltar_button.is_button_pressed():
                 self.is_option = not self.is_option
-            elif self.window.sound.get_sound_state():
+            if self.window.sound.get_sound_state():
                 if self.sound_enable_button.is_button_pressed():
                     self.window.sound.change_sound_state()
             elif not self.window.sound.get_sound_state():

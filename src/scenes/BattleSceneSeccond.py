@@ -21,8 +21,7 @@ class BattleSceneSeccond(BattleSceneFirst):
             return
 
         if self.point >= POINTS * 2:
-            import main
-            main.change_scene('Boss')
+            self.hud.get_window().main_scene.change_scene('Boss')
 
         for game_object in self.game_objects:
             game_object.update()
