@@ -70,7 +70,7 @@ class HudManager:
     def lose_life(self):
         self.life.lose_life()
         if self.life.is_empty_life():
-            self.window.main_scene.change_scene('Over')
+            self.game_over()
 
     def add_special(self):
         self.special.addSpecial()
@@ -83,3 +83,6 @@ class HudManager:
 
     def get_window(self):
         return self.window
+
+    def game_over(self):
+        self.window.main_scene.change_scene('Over')

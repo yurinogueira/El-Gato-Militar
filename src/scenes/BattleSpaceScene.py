@@ -28,7 +28,8 @@ class BattleSpaceScene(BattleSceneFirst):
     def handle_event(self, fps, state):
         super().handle_event(fps, state)
         self.blackHole.attraction(self.air_plane)
-        self.blackHole.collide(self.air_plane)
+        if self.blackHole.collide(self.air_plane):
+            self.hud.game_over()
         self.blackHole.draw()
 
     def update(self, state):

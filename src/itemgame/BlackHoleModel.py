@@ -24,7 +24,7 @@ class BlackHoleModel(GameObjectInterface):
         pass
 
     def collide(self, obj:AirPlaneModel):
-        self.blackhole.collide(obj)
+        return self.blackhole.collide(obj)
 
     def attraction(self, obj:AirPlaneModel):
         G = 2.5
