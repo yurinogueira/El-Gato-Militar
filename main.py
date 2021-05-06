@@ -4,21 +4,17 @@ from src.factory.SoundControl import SoundControl
 from src.scenes.HistoryScene import HistoryScene
 
 from src.scenes.MenuScene import MenuScene
-from src.scenes.FirstHistoryScene import FirstHistoryScene
 from src.scenes.BattleSceneFirst import BattleSceneFirst
-from src.scenes.SeccondHistoryScene import SeccondHistoryScene
 from src.scenes.SelectPlaneScene import SelectPlaneScene
 from src.scenes.BattleDesertScene import BattleDesertScene
-from src.scenes.ThirdHistoryScene import ThirdHistoryScene
 from src.scenes.HomeScene import HomeScene
 from src.scenes.BattleCityScene import BattleCityScene
-from src.scenes.FourHistoryScene import FourHistoryScene
 from src.scenes.BattleSpaceScene import BattleSpaceScene
-from src.scenes.FiveHistoryScene import FiveHistoryScene
 from src.scenes.BattleSceneFinal import BattleSceneFinal
 from src.scenes.GameOverScene import GameOverScene
 
-from constants import WINDOW_SIZE, SPEED, TITLE, HISTORY_1, HISTORY_2, HISTORY_3, HISTORY_4, HISTORY_5
+from constants import WINDOW_SIZE, SPEED, TITLE, HISTORY_1, HISTORY_2, HISTORY_3, HISTORY_4, HISTORY_5, HISTORY_6, \
+    BACKGROUND_HOME_END
 
 
 class Main:
@@ -50,8 +46,9 @@ class Main:
             'Space': BattleSpaceScene(self.get_hud()),
             'FiveHistoryScene': HistoryScene(self.get_hud(), HISTORY_5, "Boss"),
             'Boss': BattleSceneFinal(self.get_hud()),
-            'Over': GameOverScene(self.get_hud())
-            #'EndGame':  HistoryScene(self.get_hud()),
+            'Over': GameOverScene(self.get_hud()),
+            'EndGame':  HistoryScene(self.get_hud(), HISTORY_6, "End"),
+            'End':  HistoryScene(self.get_hud(), BACKGROUND_HOME_END, "End", False)
 
         }[scene_key]
 

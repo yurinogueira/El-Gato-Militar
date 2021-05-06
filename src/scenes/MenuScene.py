@@ -14,18 +14,18 @@ class MenuScene(SceneInterface):
     def __init__(self, window):
         self.hud = HudManager(window)
         self.window = window
-        self.fundo = GameImage(BACKGROUND_HOME)
+        self.fundo = GameImage(BACKGROUND_HOME_TITLE)
         self.sound_background = GameImage(SOUND_BACKGROUND)
-        self.sound_background.set_position(500 - self.sound_background.width / 2, 36)
+        self.sound_background.set_position(500 - self.sound_background.width / 2, 540)
         self.is_option = False
 
-        self.sound_enable_button = ButtonClick(SOUND_ENABLE, self.window, 96, 96)
-        self.sound_disabled_button = ButtonClick(SOUND_DISABLED, self.window, 96, 96)
+        self.sound_enable_button = ButtonClick(SOUND_ENABLE, self.window, 96, 600)
+        self.sound_disabled_button = ButtonClick(SOUND_DISABLED, self.window, 96, 600)
         self.jogar_button = Button(self.window, 250, self.window.height - 96, "JOGAR")
         self.sair_button = Button(self.window, self.window.width - 250, self.window.height - 96, "SAIR")
         self.opcoes_button = Button(self.window, self.window.width / 2, self.window.height - 96, "OPÇÕES")
-        self.voltar_button = Button(self.window, self.window.width - 250, 96, "VOLTAR")
-        self.text = CenterText(window, 500, 96, color=GOLD, text="SONS E MÚSICAS")
+        self.voltar_button = Button(self.window, self.window.width - 250, 600, "VOLTAR")
+        self.text = CenterText(window, 500, 600, color=GOLD, text="SONS E MÚSICAS")
 
     def handle_event(self, speed, state):
         if not self.is_option:

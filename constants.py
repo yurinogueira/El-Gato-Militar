@@ -56,6 +56,9 @@ CAR_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'car')
 
 # Background
 BACKGROUND_HOME = os.path.join(BACKGROUND_PATH, 'home.png')
+BACKGROUND_HOME_OVER = os.path.join(BACKGROUND_PATH, 'home_over.png')
+BACKGROUND_HOME_TITLE = os.path.join(BACKGROUND_PATH, 'home_title.png')
+BACKGROUND_HOME_END = os.path.join(BACKGROUND_PATH, 'home_end.png')
 BACKGROUND_BATTLE1 = os.path.join(BACKGROUND_PATH, 'battle1.png')
 BACKGROUND_DESERT = os.path.join(BACKGROUND_PATH, 'desert.png')
 BACKGROUND_SPACE = os.path.join(BACKGROUND_PATH, 'space.jpeg')
@@ -93,6 +96,7 @@ HISTORY_2 = os.path.join(HISTORY_PATH, '2.jpg')
 HISTORY_3 = os.path.join(HISTORY_PATH, '3.jpg')
 HISTORY_4 = os.path.join(HISTORY_PATH, '4.jpg')
 HISTORY_5 = os.path.join(HISTORY_PATH, '5.jpg')
+HISTORY_6 = os.path.join(HISTORY_PATH, '6.jpg')
 
 
 # Sprites

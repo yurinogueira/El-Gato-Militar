@@ -11,7 +11,7 @@ class GameOverScene(SceneInterface):
     def __init__(self, hud: HudManager):
         self.hud = hud
         self.window = hud.get_window()
-        self.background = GameImage(BACKGROUND_HOME)
+        self.background = GameImage(BACKGROUND_HOME_OVER)
         self.text = CenterText(self.window, self.window.width / 2, 50, WHITE, text="Você perdeu!")
 
         self.voltar_button = Button(self.window, self.window.width / 2, self.window.height / 2, "VOLTAR")
