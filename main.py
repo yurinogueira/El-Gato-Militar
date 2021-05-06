@@ -6,7 +6,6 @@ from src.scenes.MenuScene import MenuScene
 from src.scenes.HomeScene import HomeScene
 from src.scenes.SelectPlaneScene import SelectPlaneScene
 from src.scenes.BattleSceneFirst import BattleSceneFirst
-from src.scenes.BattleSceneSeccond import BattleSceneSeccond
 from src.scenes.BattleSceneFinal import BattleSceneFinal
 from src.scenes.BattleDesertScene import BattleDesertScene
 from src.scenes.BattleSpaceScene import BattleSpaceScene
@@ -33,7 +32,6 @@ class Main:
     def change_scene(self, scene_key='Main'):
         self.scene = {
             'Main': MenuScene(self.window),
-            'Battle': BattleSceneSeccond(self.get_hud()),
             'BattleFirst': BattleSceneFirst(self.get_hud()),
             'Select': SelectPlaneScene(self.get_hud()),
             'Home': HomeScene(self.get_hud()),

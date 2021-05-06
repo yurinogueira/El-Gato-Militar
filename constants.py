@@ -94,7 +94,6 @@ TORPEDO_BLACK = (os.path.join(BULLET_SPRITE_PATH, 'torpedo_black.png'), 3)
 
 # POWER-UP
 POWER_UP_COIN = (os.path.join(POWER_UP_SPRITE_PATH, 'coins.png'), 1)
-POWER_UP_DAMAGE = (os.path.join(POWER_UP_SPRITE_PATH, 'damage.png'), 1)
 POWER_UP_LIFE = (os.path.join(POWER_UP_SPRITE_PATH, 'life.png'), 1)
 POWER_UP_ENERGY = (os.path.join(POWER_UP_SPRITE_PATH, 'energy.png'), 1)
 
