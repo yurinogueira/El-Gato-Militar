@@ -36,8 +36,8 @@ class BattleSpaceScene(BattleSceneFirst):
         if not state:
             return
 
-        if self.point >= POINTS * 3:
-            self.hud.get_window().main_scene.change_scene('Main')
+        if self.point >= POINTS:
+            self.hud.get_window().main_scene.change_scene('FiveHistoryScene')
 
         for game_object in self.game_objects:
             game_object.update()

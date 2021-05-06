@@ -30,7 +30,7 @@ class MenuScene(SceneInterface):
     def handle_event(self, speed, state):
         if not self.is_option:
             if self.jogar_button.is_button_pressed():
-                self.window.main_scene.change_scene('BattleFirst')
+                self.window.main_scene.change_scene('FirstHistory')
             elif self.sair_button.is_button_pressed():
                 pygame.display.quit()
                 pygame.quit()

@@ -3,13 +3,18 @@ from PPlay.window import *
 from src.factory.SoundControl import SoundControl
 
 from src.scenes.MenuScene import MenuScene
-from src.scenes.HomeScene import HomeScene
-from src.scenes.SelectPlaneScene import SelectPlaneScene
+from src.scenes.FirstHistoryScene import FirstHistoryScene
 from src.scenes.BattleSceneFirst import BattleSceneFirst
-from src.scenes.BattleSceneFinal import BattleSceneFinal
+from src.scenes.SeccondHistoryScene import SeccondHistoryScene
+from src.scenes.SelectPlaneScene import SelectPlaneScene
 from src.scenes.BattleDesertScene import BattleDesertScene
-from src.scenes.BattleSpaceScene import BattleSpaceScene
+from src.scenes.ThirdHistoryScene import ThirdHistoryScene
+from src.scenes.HomeScene import HomeScene
 from src.scenes.BattleCityScene import BattleCityScene
+from src.scenes.FourHistoryScene import FourHistoryScene
+from src.scenes.BattleSpaceScene import BattleSpaceScene
+from src.scenes.FiveHistoryScene import FiveHistoryScene
+from src.scenes.BattleSceneFinal import BattleSceneFinal
 from src.scenes.GameOverScene import GameOverScene
 
 from constants import WINDOW_SIZE, SPEED, TITLE
@@ -32,13 +37,18 @@ class Main:
     def change_scene(self, scene_key='Main'):
         self.scene = {
             'Main': MenuScene(self.window),
+            'FirstHistory': FirstHistoryScene(self.get_hud()),
             'BattleFirst': BattleSceneFirst(self.get_hud()),
+            'SeccondHistory': SeccondHistoryScene(self.get_hud()),
             'Select': SelectPlaneScene(self.get_hud()),
-            'Home': HomeScene(self.get_hud()),
-            'Boss': BattleSceneFinal(self.get_hud()),
             'Desert': BattleDesertScene(self.get_hud()),
-            'Space': BattleSpaceScene(self.get_hud()),
+            'ThirdHistoryScene': ThirdHistoryScene(self.get_hud()),
+            'Home': HomeScene(self.get_hud()),
             'City': BattleCityScene(self.get_hud()),
+            'FourHistoryScene': FourHistoryScene(self.get_hud()),
+            'Space': BattleSpaceScene(self.get_hud()),
+            'FiveHistoryScene': FiveHistoryScene(self.get_hud()),
+            'Boss': BattleSceneFinal(self.get_hud()),
             'Over': GameOverScene(self.get_hud())
         }[scene_key]
 

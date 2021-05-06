@@ -1,5 +1,7 @@
 import os
 
+import pygame.transform
+
 from PPlay.sound import Sound
 
 # Tuples
@@ -16,9 +18,11 @@ POINTS = 20
 TIME = 60
 JUMP_MAX = 150
 SPEED = 200
-GENERATED_POINTS = 120
-ENEMY_PLANE_FIRST_POSITION = (700, 300)
-ENEMY_PLANE_SECCOND_POSITION = (200, 450)
+GENERATED_POINTS = 40
+ENEMY_PLANE_FIRST_POSITION = (400, 50)
+ENEMY_PLANE_SECCOND_POSITION = (400, 150)
+ENEMY_PLANE_THREE_POSITION = (400, 500)
+ENEMY_PLANE_FOUR_POSITION = (400, 550)
 
 # Colors
 WHITE = (255, 255, 255)
@@ -56,6 +60,7 @@ BACKGROUND_DESERT = os.path.join(BACKGROUND_PATH, 'desert.png')
 BACKGROUND_SPACE = os.path.join(BACKGROUND_PATH, 'space.jpeg')
 BACKGROUND_WAR = os.path.join(BACKGROUND_PATH, 'war.png')
 BACKGROUND_CITY = os.path.join(BACKGROUND_PATH, 'city.png')
+BACKGROUND_HISTORY = os.path.join(BACKGROUND_PATH, 'history.png')
 
 # Sprites
 BLACK_HOLE = (os.path.join(os.path.sep, SPRITES_PATH, 'black-hole.png'), 4)
@@ -77,6 +82,9 @@ CAT_SPRITE_DEAD = (os.path.join(CAT_SPRITE_PATH, 'cat_dead.png'), 10)
 
 # Enemy
 PLUS_JET_ENEMY_RED_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_red_fly.png'), 2)
+PLUS_JET_ENEMY_PINK_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_pink_fly.png'), 2)
+PLUS_JET_ENEMY_YELLOW_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_yellow_fly.png'), 2)
+PLUS_JET_ENEMY_GREEN_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_green_fly.png'), 2)
 
 # Sprites
 # AIRPLANE

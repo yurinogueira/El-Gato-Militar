@@ -1,3 +1,4 @@
+from PPlay.gameimage import GameImage
 from constants import *
 from src.factory.Hud import HudManager
 from src.factory.Text import CenterText
@@ -13,6 +14,7 @@ from src.model.EnemyAirPlaneModel import EnemyAirPlaneModel
 class BattleSceneFirst(SceneInterface):
     def __init__(self, hud: HudManager):
         self.hud = hud
+        self.window = hud.get_window()
         self.key_board = hud.get_window().get_keyboard()
         self.background = BackgroundModel(BACKGROUND_BATTLE1)
         self.air_plane = AirPlaneModel(shoot=self.hud.get_special_look(), sprite=self.hud.get_ship_look())
@@ -21,6 +23,10 @@ class BattleSceneFirst(SceneInterface):
         self.life = LifeModel(WIDTH_SCREEN, HEIGHT_SCREEN / 2, True)
         self.special = SpecialModel(WIDTH_SCREEN / 2, HEIGHT_SCREEN / 2, True)
         self.point = 0
+        points_background = pygame.transform.scale(GameImage(SOUND_BACKGROUND).image, (250, 90))
+        self.point_background = GameImage(SOUND_BACKGROUND)
+        self.point_background.image = points_background
+        self.point_background.set_position(self.window.width / 2 - points_background.get_width() / 2, -15)
         self.shot_time = 0.0
 
         self.game_objects = [self.background, self.enemy_plane, self.air_plane,
@@ -64,13 +70,13 @@ class BattleSceneFirst(SceneInterface):
                 self.enemy_shot_times[i] = 2
 
         if self.key_board.key_pressed("UP"):  # Direcional ^
-            self.air_plane.up(speed * 1.2)
+            self.air_plane.up(speed * 2)
         if self.key_board.key_pressed("DOWN"):
-            self.air_plane.down(speed * 1.2)
+            self.air_plane.down(speed * 2)
         if self.key_board.key_pressed("RIGHT"):
-            self.air_plane.forward(speed * 1.2)
+            self.air_plane.forward(speed * 2)
         if self.key_board.key_pressed("LEFT"):
-            self.air_plane.backward(speed * 1.2)
+            self.air_plane.backward(speed * 2)
         if self.shot_time <= 0.0:
             if self.key_board.key_pressed("SPACE"):
                 self.air_plane.shot()
@@ -102,6 +108,7 @@ class BattleSceneFirst(SceneInterface):
             enemy.get_life().draw()
 
         self.hud.draw()
+        self.point_background.draw()
 
         choose_color = NEAR_BLACK
 
@@ -121,7 +128,7 @@ class BattleSceneFirst(SceneInterface):
             return
 
         if self.point >= POINTS:
-            self.hud.get_window().main_scene.change_scene('Select')
+            self.hud.get_window().main_scene.change_scene('SeccondHistory')
 
         for game_object in self.game_objects:
             game_object.update()

@@ -17,7 +17,7 @@ class TimeHud:
         seconds = self.time
 
         if int(seconds) == 0:
-            self.window.main_scene.change_scene('Battle')
+            self.window.main_scene.change_scene('City')
 
         text = CenterText(self.window, self.window.width / 2, 46, text=int(seconds))
         text.draw()

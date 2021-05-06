@@ -38,11 +38,11 @@ class SoundControl:
                 self.menu_music.play()
             if not self.battle_music.is_playing() and class_name == 'BattleSceneFirst':
                 self.battle_music.play()
-            if not self.menu_music.is_playing() and class_name == 'SelectPlaneScene':
-                self.menu_music.play()
             if not self.menu_music.is_playing() and class_name == 'HomeScene':
                 self.menu_music.play()
-            if not self.battle_music.is_playing() and class_name == 'BattleSceneSeccond':
+            if not self.menu_music.is_playing() and class_name == 'BattleCityScene':
+                self.menu_music.play()
+            if not self.battle_music.is_playing() and class_name == 'BattleDesertScene':
                 self.battle_music.play()
             if not self.double_music.is_playing() and class_name == 'BattleSceneFinal':
                 self.double_music.play()

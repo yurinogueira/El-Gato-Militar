@@ -31,3 +31,11 @@ class ItemModel:
         self.animation.set_position(2000, 2000)
         self.collided = True
         return self.collided
+
+
+class WindAnimation(Sprite):
+    def __init__(self, image_file):
+        super().__init__(*image_file)
+
+    def move(self, speed):
+        pass

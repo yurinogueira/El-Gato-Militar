@@ -1,5 +1,6 @@
 import random
 
+from PPlay.sprite import Sprite
 from constants import *
 from src.hud.LifeHud import EnemyLifeHud
 from src.itemgame.ShotEnemyModel import ShotEnemyModel
@@ -7,8 +8,10 @@ from src.model.AirPlaneModel import AirPlaneModel
 
 
 class EnemyAirPlaneModel(AirPlaneModel):
-    def __init__(self, x, y, sprite=PLUS_JET_ENEMY_RED_FLY):
-        super().__init__(x, y, sprite)
+    def __init__(self, x, y):
+        self.sprites = [PLUS_JET_ENEMY_PINK_FLY, PLUS_JET_ENEMY_GREEN_FLY,
+                        PLUS_JET_ENEMY_YELLOW_FLY, PLUS_JET_ENEMY_RED_FLY]
+        super().__init__(x, y, sprite=self.sprites[random.randint(0, 3)])
         self.move_plane = 0
         self.is_hidden = False
         self.time = 0
@@ -28,6 +31,9 @@ class EnemyAirPlaneModel(AirPlaneModel):
             self.shotModel.set_position(shot_x, shot_y)
 
     def hidden(self):
+        self.animation = Sprite(*self.sprites[random.randint(0, 3)])
+        self.animation.set_loop(True)
+        self.animation.set_total_duration(1000)
         self.animation.set_position(2000, 2000)
         self.is_hidden = True
         self.lifeModel.hidden()

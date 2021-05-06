@@ -17,22 +17,21 @@ class SelectPlaneScene(SceneInterface):
         self.fundo = GameImage(BACKGROUND_HOME)
         self.time = 0
         self.select = False
+        points_background = pygame.transform.scale(GameImage(SOUND_BACKGROUND).image, (1100, 800))
+        self.point_background = GameImage(SOUND_BACKGROUND)
+        self.point_background.image = points_background
+        self.point_background.set_position(self.window.width / 2 - points_background.get_width() / 2, 0)
 
-        self.text = CenterText(hud.get_window(), WIDTH_DIV, 50,
+        self.text = CenterText(hud.get_window(), WIDTH_DIV, 300,
                                text="Escolha qual será sua próxima nave")
-
-        self.text_bottom = CenterText(hud.get_window(), WIDTH_DIV, HEIGHT_SCREEN - 120, size=56,
-                                      text="Na próxima fase você irá poder ganhar moedas")
-        self.text_bottom_2 = CenterText(hud.get_window(), WIDTH_DIV, HEIGHT_SCREEN - 50, size=56,
-                                        text="e utilizar essas moedas na loja")
 
         self.jet_g_bool = False
         self.jet_green = Sprite(*JET_GREEN_FLY)
-        self.jet_green.set_position(WIDTH_DIV - WIDTH_DIV / 2 - self.jet_green.width + 100, 250)
+        self.jet_green.set_position(WIDTH_DIV - WIDTH_DIV / 2 - self.jet_green.width + 200, 350)
 
         self.jet_y_bool = False
         self.jet_yellow = Sprite(*JET_YELLOW_FLY)
-        self.jet_yellow.set_position(WIDTH_DIV + WIDTH_DIV / 2 - 100, 250)
+        self.jet_yellow.set_position(WIDTH_DIV + WIDTH_DIV / 2 - 200, 350)
 
     def handle_event(self, speed: int, scene: bool):
         if self.mouse.is_over_object(self.jet_green):
@@ -69,12 +68,11 @@ class SelectPlaneScene(SceneInterface):
 
     def draw(self, state: bool):
         self.fundo.draw()
+        self.point_background.draw()
         self.__draw_jet(self.jet_yellow, self.jet_y_bool)
         self.__draw_jet(self.jet_green, self.jet_g_bool)
         self.text.draw()
-        self.text_bottom.draw()
-        self.text_bottom_2.draw()
 
     def update(self, state: bool):
         if self.select:
-            self.window.main_scene.change_scene('Home')
+            self.window.main_scene.change_scene('Desert')
