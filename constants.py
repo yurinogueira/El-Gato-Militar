@@ -47,6 +47,7 @@ HUD_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'hud')
 HUD_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'hud')
 POWER_UP_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'powerUp')
 BULLET_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'bullets')
+CAR_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'car')
 
 # Background
 BACKGROUND_HOME = os.path.join(BACKGROUND_PATH, 'home.png')
@@ -96,6 +97,13 @@ TORPEDO_BLACK = (os.path.join(BULLET_SPRITE_PATH, 'torpedo_black.png'), 3)
 POWER_UP_COIN = (os.path.join(POWER_UP_SPRITE_PATH, 'coins.png'), 1)
 POWER_UP_LIFE = (os.path.join(POWER_UP_SPRITE_PATH, 'life.png'), 1)
 POWER_UP_ENERGY = (os.path.join(POWER_UP_SPRITE_PATH, 'energy.png'), 1)
+
+#CAR
+CAR_1 = (os.path.join(CAR_PATH, 'car1.png'), 1)
+CAR_2 = (os.path.join(CAR_PATH, 'car2.png'), 1)
+CAR_3 = (os.path.join(CAR_PATH, 'car3.png'), 1)
+CAR_4 = (os.path.join(CAR_PATH, 'car4.png'), 1)
+CAR_5 = (os.path.join(CAR_PATH, 'car5.png'), 1)
 
 # HUD
 SOUND_BACKGROUND = os.path.join(HUD_PATH, 'bar_empty.png')

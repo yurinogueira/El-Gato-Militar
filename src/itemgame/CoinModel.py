@@ -24,10 +24,11 @@ class CoinModel(GameObjectInterface):
             if self.coinAnimation.y > HEIGHT_SCREEN + self.coinAnimation.height and not self.coin.collided:
                 self.coin = ItemModel(POWER_UP_COIN)
                 self.coinAnimation = self.coin.animation
-                self.coinAnimation.set_position(self.__random_x(), random.randint(-50000, 0))
+                self.coinAnimation.set_position(self.__random_x(), random.randint(-5000, 0))
 
     def collide(self, obj):
         if self.coin.collide(obj):
+            self.coinAnimation.set_position(self.__random_x(), -2500)
             COIN_SOUND.play()
             return True
         return False
@@ -35,7 +36,7 @@ class CoinModel(GameObjectInterface):
     def generatesPoint(self, size):
         powers = []
         for i in range(size):
-            powers.append(CoinModel(self.__random_x(), random.randint(-50000, 0), True))
+            powers.append(CoinModel(self.__random_x(), random.randint(-5000, 0), True))
         return powers
 
     def __random_x(self):
