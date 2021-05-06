@@ -20,7 +20,6 @@ class BattleSceneFirst(SceneInterface):
         self.coin = CoinModel()
         self.life = LifeModel(WIDTH_SCREEN, HEIGHT_SCREEN / 2, True)
         self.special = SpecialModel(WIDTH_SCREEN / 2, HEIGHT_SCREEN / 2, True)
-        self.fps = 0
         self.point = 0
         self.shot_time = 0.0
 
@@ -32,12 +31,11 @@ class BattleSceneFirst(SceneInterface):
         self.enemys = [self.enemy_plane]
         self.enemy_shot_times = [0.0]
 
-    def handle_event(self, fps, state):
+    def handle_event(self, speed, state):
         if not state:
             return
 
         self.shot_time -= self.hud.get_window().delta_time()
-        self.fps = fps
 
         for i in range(len(self.enemys)):
             self.enemy_shot_times[i] -= self.hud.get_window().delta_time()
@@ -66,13 +64,13 @@ class BattleSceneFirst(SceneInterface):
                 self.enemy_shot_times[i] = 2
 
         if self.key_board.key_pressed("UP"):  # Direcional ^
-            self.air_plane.up(self.fps * 2)
+            self.air_plane.up(speed * 1.2)
         if self.key_board.key_pressed("DOWN"):
-            self.air_plane.down(self.fps * 2)
+            self.air_plane.down(speed * 1.2)
         if self.key_board.key_pressed("RIGHT"):
-            self.air_plane.forward(self.fps * 2)
+            self.air_plane.forward(speed * 1.2)
         if self.key_board.key_pressed("LEFT"):
-            self.air_plane.backward(self.fps * 2)
+            self.air_plane.backward(speed * 1.2)
         if self.shot_time <= 0.0:
             if self.key_board.key_pressed("SPACE"):
                 self.air_plane.shot()
@@ -82,7 +80,7 @@ class BattleSceneFirst(SceneInterface):
             self.air_plane.shot_special()
 
         for game_object in self.game_objects:
-            game_object.move(self.fps)
+            game_object.move(speed)
 
         if self.coin.collide(self.air_plane):
             self.hud.point.addPoint(1)

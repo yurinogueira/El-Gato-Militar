@@ -25,7 +25,7 @@ class BattleDesertScene(BattleSceneFirst):
         self.enemys = [self.enemy_plane, self.enemy_plane_two]
         self.enemy_shot_times = [0.0, 0.0]
         self.backward = False
-        self.count = 0
+        self.count = 0.0
         self.wind_force = 0.5
 
     def __wind_direction(self, image):
@@ -35,11 +35,11 @@ class BattleDesertScene(BattleSceneFirst):
                                             HEIGHT_SCREEN - windDirectionAnimation.width - 50)
         return windDirectionAnimation
 
-    def handle_event(self, fps, state):
-        super().handle_event(fps, state)
-        self.count += 1
+    def handle_event(self, speed, state):
+        super().handle_event(speed, state)
+        self.count += speed / 150
 
-        if self.count % 60 == 0:
+        if self.count >= 1:
             self.count = 0
             self.wind_force += 0.1
 
@@ -52,9 +52,9 @@ class BattleDesertScene(BattleSceneFirst):
                 self.wind = self.__wind_direction(RIGHT_ARROW)
 
         if self.backward:
-            self.air_plane.backward(self.fps * self.wind_force)
+            self.air_plane.backward(speed * self.wind_force)
         else:
-            self.air_plane.forward(self.fps * self.wind_force)
+            self.air_plane.forward(speed * self.wind_force)
 
     def update(self, state):
         if not state:

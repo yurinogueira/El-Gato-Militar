@@ -13,7 +13,7 @@ from src.scenes.BattleSpaceScene import BattleSpaceScene
 from src.scenes.BattleCityScene import BattleCityScene
 from src.scenes.GameOverScene import GameOverScene
 
-from constants import WINDOW_SIZE, FRAME_SPEED, TITLE
+from constants import WINDOW_SIZE, SPEED, TITLE
 
 
 class Main:
@@ -46,9 +46,13 @@ class Main:
 
     def start(self):
         while True:
-            fps = FRAME_SPEED * self.window.delta_time()
+            delta_time = self.window.delta_time()
+            if delta_time == 0:
+                delta_time = 1
 
-            self.scene.handle_event(fps, self.running)
+            speed = SPEED * delta_time
+
+            self.scene.handle_event(speed, self.running)
             self.scene.draw(self.running)
             self.scene.update(self.running)
 

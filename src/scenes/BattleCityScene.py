@@ -21,8 +21,8 @@ class BattleCityScene(BattleSceneFirst):
         self.enemys = [self.enemy_plane, self.enemy_plane_two]
         self.enemy_shot_times = [0.0, 0.0]
 
-    def handle_event(self, fps, state):
-        super().handle_event(fps, state)
+    def handle_event(self, speed, state):
+        super().handle_event(speed, state)
 
     def update(self, state):
         if not state:

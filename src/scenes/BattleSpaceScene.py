@@ -25,9 +25,9 @@ class BattleSpaceScene(BattleSceneFirst):
         self.count = 0
         self.wind = 0.5
 
-    def handle_event(self, fps, state):
-        super().handle_event(fps, state)
-        self.blackHole.attraction(self.air_plane)
+    def handle_event(self, speed, state):
+        super().handle_event(speed, state)
+        self.blackHole.attraction(speed, self.air_plane)
         if self.blackHole.collide(self.air_plane):
             self.hud.game_over()
         self.blackHole.draw()

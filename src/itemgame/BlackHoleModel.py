@@ -1,5 +1,6 @@
 from PPlay.point import Point
 from PPlay.sprite import Sprite
+from PPlay.window import Window
 from constants import BLACK_HOLE
 from src.interfaces.GameObjectInterface import GameObjectInterface
 from src.itemgame.ItemModel import ItemModel
@@ -23,11 +24,11 @@ class BlackHoleModel(GameObjectInterface):
     def move(self, fps: int):
         pass
 
-    def collide(self, obj:AirPlaneModel):
+    def collide(self, obj: AirPlaneModel):
         return self.blackhole.collide(obj)
 
-    def attraction(self, obj:AirPlaneModel):
-        G = 2.5
+    def attraction(self, speed, obj: AirPlaneModel):
+        G = speed * 0.4
         if int(obj.animation.x) <= int(self.middle):
             obj.forward(G)
         elif int(obj.animation.x) > int(self.middle):
