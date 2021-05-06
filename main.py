@@ -1,6 +1,7 @@
 from PPlay.window import *
 
 from src.factory.SoundControl import SoundControl
+from src.scenes.HistoryScene import HistoryScene
 
 from src.scenes.MenuScene import MenuScene
 from src.scenes.FirstHistoryScene import FirstHistoryScene
@@ -17,7 +18,7 @@ from src.scenes.FiveHistoryScene import FiveHistoryScene
 from src.scenes.BattleSceneFinal import BattleSceneFinal
 from src.scenes.GameOverScene import GameOverScene
 
-from constants import WINDOW_SIZE, SPEED, TITLE
+from constants import WINDOW_SIZE, SPEED, TITLE, HISTORY_1, HISTORY_2, HISTORY_3, HISTORY_4, HISTORY_5
 
 
 class Main:
@@ -37,19 +38,21 @@ class Main:
     def change_scene(self, scene_key='Main'):
         self.scene = {
             'Main': MenuScene(self.window),
-            'FirstHistory': FirstHistoryScene(self.get_hud()),
+            'FirstHistory': HistoryScene(self.get_hud(), HISTORY_1, "BattleFirst"),
             'BattleFirst': BattleSceneFirst(self.get_hud()),
-            'SeccondHistory': SeccondHistoryScene(self.get_hud()),
+            'SecondHistory': HistoryScene(self.get_hud(), HISTORY_2, "Select"),
             'Select': SelectPlaneScene(self.get_hud()),
             'Desert': BattleDesertScene(self.get_hud()),
-            'ThirdHistoryScene': ThirdHistoryScene(self.get_hud()),
+            'ThirdHistoryScene': HistoryScene(self.get_hud(), HISTORY_3, "Home"),
             'Home': HomeScene(self.get_hud()),
             'City': BattleCityScene(self.get_hud()),
-            'FourHistoryScene': FourHistoryScene(self.get_hud()),
+            'FourHistoryScene': HistoryScene(self.get_hud(), HISTORY_4, "Space"),
             'Space': BattleSpaceScene(self.get_hud()),
-            'FiveHistoryScene': FiveHistoryScene(self.get_hud()),
+            'FiveHistoryScene': HistoryScene(self.get_hud(), HISTORY_5, "Boss"),
             'Boss': BattleSceneFinal(self.get_hud()),
             'Over': GameOverScene(self.get_hud())
+            #'EndGame':  HistoryScene(self.get_hud()),
+
         }[scene_key]
 
     def start(self):

@@ -41,6 +41,7 @@ ROOT_PATH = os.path.dirname(__file__)
 RESOURCES_PATH = os.path.join(os.path.sep, ROOT_PATH, 'resources')
 SPRITES_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'sprites')
 SOUND_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'sounds')
+HISTORY_PATH = os.path.join(os.path.sep, RESOURCES_PATH, 'history')
 
 CAT_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'cat')
 AIRPLANE_SPRITE_PATH = os.path.join(os.path.sep, SPRITES_PATH, 'airplanes')
@@ -85,6 +86,14 @@ PLUS_JET_ENEMY_RED_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_red_fly.png')
 PLUS_JET_ENEMY_PINK_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_pink_fly.png'), 2)
 PLUS_JET_ENEMY_YELLOW_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_yellow_fly.png'), 2)
 PLUS_JET_ENEMY_GREEN_FLY = (os.path.join(ENEMY_SPRITE_PATH, 'plusjet_green_fly.png'), 2)
+
+#HISTORY
+HISTORY_1 = os.path.join(HISTORY_PATH, '1.jpg')
+HISTORY_2 = os.path.join(HISTORY_PATH, '2.jpg')
+HISTORY_3 = os.path.join(HISTORY_PATH, '3.jpg')
+HISTORY_4 = os.path.join(HISTORY_PATH, '4.jpg')
+HISTORY_5 = os.path.join(HISTORY_PATH, '5.jpg')
+
 
 # Sprites
 # AIRPLANE

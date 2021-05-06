@@ -110,25 +110,17 @@ class BattleSceneFirst(SceneInterface):
         self.hud.draw()
         self.point_background.draw()
 
-        choose_color = NEAR_BLACK
-
-        if 10 > self.point > 5:
-            choose_color = GOLD
-        elif 15 > self.point > 9:
-            choose_color = ORANGE
-        elif self.point > 15:
-            choose_color = GOLDEN
 
         CenterText(self.hud.get_window(),
                    self.hud.get_window().width / 2,
-                   30, choose_color, 64, "Pontos " + str(self.point)).draw()
+                   30, GOLD, 64, "Pontos " + str(self.point)).draw()
 
     def update(self, state):
         if not state:
             return
 
         if self.point >= POINTS:
-            self.hud.get_window().main_scene.change_scene('SeccondHistory')
+            self.hud.get_window().main_scene.change_scene('SecondHistory')
 
         for game_object in self.game_objects:
             game_object.update()

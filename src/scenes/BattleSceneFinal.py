@@ -36,7 +36,7 @@ class BattleSceneFinal(BattleSceneFirst):
             return
         self.background.update()
         if self.point >= POINTS * 2:
-            self.hud.get_window().main_scene.change_scene('Main')
+            self.hud.get_window().main_scene.change_scene('EndGame')
 
         for game_object in self.game_objects:
             game_object.update()
