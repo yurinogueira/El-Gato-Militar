@@ -1,3 +1,11 @@
+import os, sys
+dirpath = os.getcwd()
+sys.path.append(dirpath)
+if getattr(sys, "frozen", False):
+    os.chdir(sys._MEIPASS)
+###
+
+
 from PPlay.gameimage import *
 
 import pygame
@@ -26,9 +34,13 @@ class MenuScene(SceneInterface):
         self.opcoes_button = Button(self.window, self.window.width / 2, self.window.height - 96, "OPÇÕES")
         self.voltar_button = Button(self.window, self.window.width - 250, 600, "VOLTAR")
         self.text = CenterText(window, 500, 600, color=GOLD, text="SONS E MÚSICAS")
+        self.time = 0.0
 
     def handle_event(self, speed, state):
+        self.time -= self.window.delta_time()
         if not self.is_option:
+            if self.time > 0:
+                return
             if self.jogar_button.is_button_pressed():
                 self.window.main_scene.change_scene('FirstHistory')
             elif self.sair_button.is_button_pressed():
@@ -39,6 +51,7 @@ class MenuScene(SceneInterface):
                 self.is_option = not self.is_option
         else:
             if self.voltar_button.is_button_pressed():
+                self.time = 0.5
                 self.is_option = not self.is_option
             if self.window.sound.get_sound_state():
                 if self.sound_enable_button.is_button_pressed():

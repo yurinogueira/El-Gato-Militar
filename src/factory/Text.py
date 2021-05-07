@@ -12,7 +12,8 @@ class CenterText:
         self.size = size
         self.textStr = str(text)
 
-        self.text = pygame.font.Font(None, self.size).render(self.textStr, True, self.color)
+        self.font = pygame.font.SysFont("Arial", int(self.size * 0.7), bold=False, italic=False)
+        self.text = self.font.render(self.textStr, True, self.color)
         self.text_rect = self.text.get_rect(center=(self.x, self.y))
 
     def draw(self):

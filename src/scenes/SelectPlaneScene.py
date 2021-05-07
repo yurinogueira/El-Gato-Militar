@@ -1,3 +1,5 @@
+import pygame
+
 from PPlay import mouse
 from PPlay.gameimage import GameImage
 from PPlay.sprite import Sprite

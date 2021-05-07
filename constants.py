@@ -1,6 +1,11 @@
-import os
+import os, sys
 
-import pygame.transform
+dirpath = os.getcwd()
+sys.path.append(dirpath)
+
+if getattr(sys, "frozen", False):
+    os.chdir(sys._MEIPASS)
+###
 
 from PPlay.sound import Sound
 

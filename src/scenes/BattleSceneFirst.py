@@ -1,3 +1,5 @@
+import pygame
+
 from PPlay.gameimage import GameImage
 from constants import *
 from src.factory.Hud import HudManager
