@@ -1,16 +1,21 @@
 import pygame
 
 from PPlay.gameimage import GameImage
-from constants import *
+
+from src.interfaces.SceneInteface import SceneInterface
+
 from src.factory.Hud import HudManager
 from src.factory.Text import CenterText
-from src.interfaces.SceneInteface import SceneInterface
+
 from src.itemgame.CoinModel import CoinModel
 from src.itemgame.LifeModel import LifeModel
 from src.itemgame.SpecialModel import SpecialModel
+
 from src.model.AirPlaneModel import AirPlaneModel
 from src.model.BackgroundModel import BackgroundModel
 from src.model.EnemyAirPlaneModel import EnemyAirPlaneModel
+
+from constants import *
 
 
 class BattleSceneFirst(SceneInterface):

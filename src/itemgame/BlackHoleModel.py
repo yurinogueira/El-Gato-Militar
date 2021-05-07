@@ -1,7 +1,10 @@
-from constants import BLACK_HOLE
 from src.interfaces.GameObjectInterface import GameObjectInterface
+
 from src.itemgame.ItemModel import ItemModel
+
 from src.model.AirPlaneModel import AirPlaneModel
+
+from constants import BLACK_HOLE
 
 
 class BlackHoleModel(GameObjectInterface):

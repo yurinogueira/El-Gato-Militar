@@ -1,8 +1,12 @@
 from PPlay.gameimage import *
-from constants import *
+
 from src.interfaces.SceneInteface import SceneInterface
+
 from src.itemgame.CoinModel import CoinModel
+
 from src.model.CatModel import CatModel
+
+from constants import *
 
 
 class HomeScene(SceneInterface):

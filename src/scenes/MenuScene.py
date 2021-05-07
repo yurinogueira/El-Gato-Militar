@@ -1,17 +1,12 @@
-import os, sys
-dirpath = os.getcwd()
-sys.path.append(dirpath)
-if getattr(sys, "frozen", False):
-    os.chdir(sys._MEIPASS)
-###
-
-
 from PPlay.gameimage import *
-from constants import *
+
+from src.interfaces.SceneInteface import SceneInterface
+
 from src.factory.Button import Button, ButtonClick
 from src.factory.Hud import HudManager
 from src.factory.Text import CenterText
-from src.interfaces.SceneInteface import SceneInterface
+
+from constants import *
 
 
 class MenuScene(SceneInterface):

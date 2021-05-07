@@ -1,10 +1,14 @@
 import random
 
 from PPlay.sprite import Sprite
-from constants import *
+
 from src.hud.LifeHud import EnemyLifeHud
+
 from src.itemgame.ShotEnemyModel import ShotEnemyModel
+
 from src.model.AirPlaneModel import AirPlaneModel
+
+from constants import *
 
 
 class EnemyAirPlaneModel(AirPlaneModel):

@@ -1,4 +1,5 @@
-import os, sys
+import os
+import sys
 
 dirpath = os.getcwd()
 sys.path.append(dirpath)
@@ -10,8 +11,8 @@ if getattr(sys, "frozen", False):
 from PPlay.window import *
 
 from src.factory.SoundControl import SoundControl
-from src.scenes.HistoryScene import HistoryScene
 
+from src.scenes.HistoryScene import HistoryScene
 from src.scenes.MenuScene import MenuScene
 from src.scenes.BattleSceneFirst import BattleSceneFirst
 from src.scenes.SelectPlaneScene import SelectPlaneScene

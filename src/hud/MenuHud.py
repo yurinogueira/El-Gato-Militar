@@ -1,6 +1,8 @@
 from PPlay.gameimage import GameImage
-from constants import *
+
 from src.factory.Button import Button
+
+from constants import *
 
 
 class MenuHud:

@@ -1,5 +1,6 @@
-from constants import FIRE_BALL_REVERSE
 from src.itemgame.ShotModel import ShotModel
+
+from constants import FIRE_BALL_REVERSE
 
 
 class ShotEnemyModel(ShotModel):

@@ -1,11 +1,4 @@
-import os, sys
-
-dirpath = os.getcwd()
-sys.path.append(dirpath)
-
-if getattr(sys, "frozen", False):
-    os.chdir(sys._MEIPASS)
-###
+import os
 
 from PPlay.sound import Sound
 

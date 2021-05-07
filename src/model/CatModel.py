@@ -1,6 +1,8 @@
 from PPlay.sprite import Sprite
-from constants import *
+
 from src.interfaces.GameObjectInterface import GameObjectInterface
+
+from constants import *
 
 
 class CatModel(GameObjectInterface):

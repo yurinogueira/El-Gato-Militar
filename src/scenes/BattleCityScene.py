@@ -1,11 +1,13 @@
 from constants import *
 
+from src.scenes.BattleSceneFirst import BattleSceneFirst
+
 from src.factory.Hud import HudManager
+
 from src.itemgame.CarModel import CarModel
+
 from src.model.BackgroundModel import BackgroundModel
 from src.model.EnemyAirPlaneModel import EnemyAirPlaneModel
-
-from src.scenes.BattleSceneFirst import BattleSceneFirst
 
 
 class BattleCityScene(BattleSceneFirst):

@@ -1,10 +1,12 @@
 from PPlay.sprite import Sprite
-from constants import *
-
-from src.factory.Hud import HudManager
-from src.model.EnemyAirPlaneModel import EnemyAirPlaneModel
 
 from src.scenes.BattleSceneFirst import BattleSceneFirst
+
+from src.factory.Hud import HudManager
+
+from src.model.EnemyAirPlaneModel import EnemyAirPlaneModel
+
+from constants import *
 
 
 class BattleSceneFinal(BattleSceneFirst):

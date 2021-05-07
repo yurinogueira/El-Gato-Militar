@@ -1,8 +1,11 @@
 from PPlay.gameimage import GameImage
-from constants import *
+
+from src.interfaces.SceneInteface import SceneInterface
+
 from src.factory.Button import Button
 from src.factory.Hud import HudManager
-from src.interfaces.SceneInteface import SceneInterface
+
+from constants import *
 
 
 class HistoryScene(SceneInterface):

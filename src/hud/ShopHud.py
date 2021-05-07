@@ -1,8 +1,8 @@
 from PPlay.gameimage import GameImage
 
-from constants import *
-
 from src.factory.Text import CenterText
+
+from constants import *
 
 
 class ShopHud:
