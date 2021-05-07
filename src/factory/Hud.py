@@ -1,11 +1,10 @@
+from constants import *
 from src.hud.LifeHud import LifeHud
+from src.hud.MenuHud import MenuHud
 from src.hud.PointHud import PointHud
+from src.hud.ShopHud import ShopHud
 from src.hud.SpecialHud import SpecialHud
 from src.hud.TimeHud import TimeHud
-from src.hud.ShopHud import ShopHud
-from src.hud.MenuHud import MenuHud
-
-from constants import *
 
 
 class HudManager:

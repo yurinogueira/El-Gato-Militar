@@ -3,11 +3,11 @@ from constants import *
 from src.factory.Hud import HudManager
 from src.factory.Text import CenterText
 from src.interfaces.SceneInteface import SceneInterface
+from src.itemgame.CoinModel import CoinModel
 from src.itemgame.LifeModel import LifeModel
 from src.itemgame.SpecialModel import SpecialModel
 from src.model.AirPlaneModel import AirPlaneModel
 from src.model.BackgroundModel import BackgroundModel
-from src.itemgame.CoinModel import CoinModel
 from src.model.EnemyAirPlaneModel import EnemyAirPlaneModel
 
 

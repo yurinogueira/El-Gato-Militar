@@ -1,11 +1,9 @@
-from PPlay.gameimage import *
-
 import pygame
 
+from PPlay.gameimage import *
 from constants import *
-
-from src.factory.Hud import HudManager
 from src.factory.Button import Button, ButtonClick
+from src.factory.Hud import HudManager
 from src.factory.Text import CenterText
 from src.interfaces.SceneInteface import SceneInterface
 
@@ -30,7 +28,7 @@ class MenuScene(SceneInterface):
     def handle_event(self, speed, state):
         if not self.is_option:
             if self.jogar_button.is_button_pressed():
-                self.window.main_scene.change_scene('FirstHistory')
+                self.window.main_scene.change_scene('Space')
             elif self.sair_button.is_button_pressed():
                 pygame.display.quit()
                 pygame.quit()

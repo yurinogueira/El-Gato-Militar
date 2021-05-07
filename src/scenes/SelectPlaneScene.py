@@ -1,12 +1,10 @@
 from PPlay import mouse
 from PPlay.gameimage import GameImage
 from PPlay.sprite import Sprite
-
+from constants import *
 from src.factory.Hud import HudManager
 from src.factory.Text import CenterText
 from src.interfaces.SceneInteface import SceneInterface
-
-from constants import *
 
 
 class SelectPlaneScene(SceneInterface):
