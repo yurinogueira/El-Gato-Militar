@@ -1,6 +1,3 @@
-from PPlay.point import Point
-from PPlay.sprite import Sprite
-from PPlay.window import Window
 from constants import BLACK_HOLE
 from src.interfaces.GameObjectInterface import GameObjectInterface
 from src.itemgame.ItemModel import ItemModel

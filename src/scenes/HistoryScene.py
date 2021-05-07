@@ -1,10 +1,7 @@
 from PPlay.gameimage import GameImage
-
+from constants import *
 from src.factory.Button import Button
 from src.factory.Hud import HudManager
-from src.factory.Text import CenterText
-
-from constants import *
 from src.interfaces.SceneInteface import SceneInterface
 
 

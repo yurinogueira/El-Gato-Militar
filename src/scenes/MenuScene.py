@@ -7,13 +7,9 @@ if getattr(sys, "frozen", False):
 
 
 from PPlay.gameimage import *
-
-import pygame
-
 from constants import *
-
-from src.factory.Hud import HudManager
 from src.factory.Button import Button, ButtonClick
+from src.factory.Hud import HudManager
 from src.factory.Text import CenterText
 from src.interfaces.SceneInteface import SceneInterface
 
