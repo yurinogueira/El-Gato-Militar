@@ -39,13 +39,13 @@ class SelectPlaneScene(SceneInterface):
         if self.mouse.is_over_object(self.jet_green):
             self.jet_g_bool = True
             self.jet_y_bool = False
-            if self.mouse.is_button_pressed(mouse.BUTTON_LEFT):
+            if self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT):
                 self.hud.set_ship_look(JET_GREEN_FLY)
                 self.select = True
         elif self.mouse.is_over_object(self.jet_yellow):
             self.jet_y_bool = True
             self.jet_g_bool = False
-            if self.mouse.is_button_pressed(mouse.BUTTON_LEFT):
+            if self.mouse.is_button_pressed(self.mouse.BUTTON_LEFT):
                 self.hud.set_ship_look(JET_YELLOW_FLY)
                 self.select = True
         else:

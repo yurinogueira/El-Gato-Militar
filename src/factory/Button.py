@@ -1,5 +1,6 @@
 from pplay.gameimage import GameImage
 from pplay.text import Text
+from pplay.sound import SoundMixer
 
 from constants import *
 
@@ -37,6 +38,8 @@ class Button:
         if self.is_button_press:
             self.is_button_press = False
             BUTTON_SOUND.play()
+            print(SoundMixer.positions)
+            print(BUTTON_SOUND.rnd_code)
             return True
         return False
 

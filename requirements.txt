@@ -1,2 +1,2 @@
 pygame==2.1.2
-pplay-pygame==2.0.9
+pplay-pygame==2.1.4

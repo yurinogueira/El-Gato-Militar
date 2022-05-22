@@ -3,7 +3,7 @@ from constants import *
 
 class SoundControl:
     def __init__(self):
-        self.old_scene = 'MenuScene'
+        self.old_scene = ''
         self.is_enabled = True
 
         self.menu_music = MENU_LOOP_SOUND
@@ -25,30 +25,34 @@ class SoundControl:
 
     def change_sound_state(self):
         self.is_enabled = not self.is_enabled
+        if not self.get_sound_state():
+            self.menu_music.stop()
+            self.battle_music.stop()
+            self.double_music.stop()
+            self.mega_battle_music.stop()
 
     def play_music(self, class_name: str):
         if not self.get_sound_state():
-            self.menu_music.pause()
-        else:
-            self.menu_music.unpause()
-            if self.old_scene != class_name:
-                self.old_scene = class_name
-                self.menu_music.stop()
-                self.battle_music.stop()
-                self.double_music.stop()
-                self.mega_battle_music.stop()
+            return
 
-            if not self.menu_music.is_playing() and class_name == 'MenuScene':
-                self.menu_music.play()
-            if not self.battle_music.is_playing() and class_name == 'BattleSceneFirst':
-                self.battle_music.play()
-            if not self.menu_music.is_playing() and class_name == 'HomeScene':
-                self.menu_music.play()
-            if not self.menu_music.is_playing() and class_name == 'BattleCityScene':
-                self.menu_music.play()
-            if not self.battle_music.is_playing() and class_name == 'BattleDesertScene':
-                self.battle_music.play()
-            if not self.double_music.is_playing() and class_name == 'BattleSceneFinal':
-                self.double_music.play()
-            if not self.mega_battle_music.is_playing() and class_name == 'BattleSpaceScene':
-                self.mega_battle_music.play()
+        if self.old_scene != class_name:
+            self.old_scene = class_name
+            self.menu_music.stop()
+            self.battle_music.stop()
+            self.double_music.stop()
+            self.mega_battle_music.stop()
+
+        if class_name == 'MenuScene':
+            self.menu_music.play()
+        if class_name == 'BattleSceneFirst':
+            self.battle_music.play()
+        if class_name == 'HomeScene':
+            self.menu_music.play()
+        if class_name == 'BattleCityScene':
+            self.menu_music.play()
+        if class_name == 'BattleDesertScene':
+            self.battle_music.play()
+        if class_name == 'BattleSceneFinal':
+            self.double_music.play()
+        if class_name == 'BattleSpaceScene':
+            self.mega_battle_music.play()
