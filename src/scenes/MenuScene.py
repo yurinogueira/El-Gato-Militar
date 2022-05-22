@@ -1,10 +1,12 @@
-from PPlay.gameimage import *
+import pygame
+
+from pplay.gameimage import GameImage
+from pplay.text import Text
 
 from src.interfaces.SceneInteface import SceneInterface
 
 from src.factory.Button import Button, ButtonClick
 from src.factory.Hud import HudManager
-from src.factory.Text import CenterText
 
 from constants import *
 
@@ -24,7 +26,7 @@ class MenuScene(SceneInterface):
         self.sair_button = Button(self.window, self.window.width - 250, self.window.height - 96, "SAIR")
         self.opcoes_button = Button(self.window, self.window.width / 2, self.window.height - 96, "OPÇÕES")
         self.voltar_button = Button(self.window, self.window.width - 250, 600, "VOLTAR")
-        self.text = CenterText(window, 500, 600, color=GOLD, text="SONS E MÚSICAS")
+        self.text = Text(500, 600, color=GOLD, text="SONS E MÚSICAS")
         self.time = 0.0
 
     def handle_event(self, speed, state):

@@ -1,6 +1,5 @@
-from PPlay.gameimage import GameImage
-
-from src.factory.Text import CenterText
+from pplay.gameimage import GameImage
+from pplay.text import Text
 
 from constants import *
 
@@ -24,12 +23,13 @@ class Button:
         if self.mouse.is_over_object(self.button):
             color = ORANGE
 
-        text = CenterText(self.window,
-                          self.x + self.button.width / 2,
-                          self.y + self.button.height / 2,
-                          color=color,
-                          size=80,
-                          text=self.text_str)
+        text = Text(
+            self.x + self.button.width / 2,
+            self.y + self.button.height / 2,
+            color=color,
+            size=80,
+            text=self.text_str,
+        )
         text.draw()
         self.update()
 

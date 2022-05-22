@@ -1,6 +1,6 @@
 import random
 
-from PPlay.sprite import Sprite
+from pplay.sprite import Sprite
 
 from src.hud.LifeHud import EnemyLifeHud
 

@@ -1,10 +1,10 @@
-from PPlay.gameimage import GameImage
+from pplay.gameimage import GameImage
+from pplay.text import Text
 
 from src.interfaces.SceneInteface import SceneInterface
 
 from src.factory.Button import Button
 from src.factory.Hud import HudManager
-from src.factory.Text import CenterText
 
 from constants import *
 
@@ -14,7 +14,7 @@ class GameOverScene(SceneInterface):
         self.hud = hud
         self.window = hud.get_window()
         self.background = GameImage(BACKGROUND_HOME_OVER)
-        self.text = CenterText(self.window, self.window.width / 2, 50, WHITE, text="Você perdeu!")
+        self.text = Text(self.window.width / 2, 50, color=WHITE, text="Você perdeu!")
 
         self.voltar_button = Button(self.window, self.window.width / 2, self.window.height / 2, "VOLTAR")
 

@@ -1,11 +1,11 @@
 import pygame
 
-from PPlay.gameimage import GameImage
+from pplay.gameimage import GameImage
+from pplay.text import Text
 
 from src.interfaces.SceneInteface import SceneInterface
 
 from src.factory.Hud import HudManager
-from src.factory.Text import CenterText
 
 from src.itemgame.CoinModel import CoinModel
 from src.itemgame.LifeModel import LifeModel
@@ -117,10 +117,7 @@ class BattleSceneFirst(SceneInterface):
         self.hud.draw()
         self.point_background.draw()
 
-
-        CenterText(self.hud.get_window(),
-                   self.hud.get_window().width / 2,
-                   30, GOLD, 64, "Pontos " + str(self.point)).draw()
+        Text(self.hud.get_window().width / 2, 30, "Pontos " + str(self.point), GOLD, 64).draw()
 
     def update(self, state):
         if not state:

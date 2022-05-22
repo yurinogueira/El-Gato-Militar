@@ -8,7 +8,7 @@ if getattr(sys, "frozen", False):
     os.chdir(sys._MEIPASS)
 ###
 
-from PPlay.window import *
+from pplay.window import Window
 
 from src.factory.SoundControl import SoundControl
 

@@ -1,13 +1,13 @@
 import pygame
 
-from PPlay import mouse
-from PPlay.gameimage import GameImage
-from PPlay.sprite import Sprite
+from pplay import mouse
+from pplay.gameimage import GameImage
+from pplay.sprite import Sprite
+from pplay.text import Text
 
 from src.interfaces.SceneInteface import SceneInterface
 
 from src.factory.Hud import HudManager
-from src.factory.Text import CenterText
 
 from constants import *
 
@@ -25,8 +25,7 @@ class SelectPlaneScene(SceneInterface):
         self.point_background.image = points_background
         self.point_background.set_position(self.window.width / 2 - points_background.get_width() / 2, 0)
 
-        self.text = CenterText(hud.get_window(), WIDTH_DIV, 300,
-                               text="Escolha qual será sua próxima nave")
+        self.text = Text(WIDTH_DIV, 300, text="Escolha qual será sua próxima nave")
 
         self.jet_g_bool = False
         self.jet_green = Sprite(*JET_GREEN_FLY)

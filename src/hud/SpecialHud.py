@@ -1,5 +1,5 @@
-from PPlay.gameimage import GameImage
-from PPlay.sprite import Sprite
+from pplay.gameimage import GameImage
+from pplay.sprite import Sprite
 
 from constants import *
 

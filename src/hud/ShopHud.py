@@ -1,6 +1,5 @@
-from PPlay.gameimage import GameImage
-
-from src.factory.Text import CenterText
+from pplay.gameimage import GameImage
+from pplay.text import Text
 
 from constants import *
 
@@ -20,25 +19,25 @@ class ShopHud:
         self.blue_fire_shop.set_position(self.window.width / 2 - self.shop_screen.width / 2, 140)
         self.blue_fire_shop_b = GameImage(BLUE_FIRE_SHOP_B)
         self.blue_fire_shop_b.set_position(self.window.width / 2 - self.shop_screen.width / 2, 140)
-        self.blue_text = CenterText(self.window, self.window.width / 2 + 20, 294, color=SKY_BLUE, size=46, text="10 C")
+        self.blue_text = Text(self.window.width / 2 + 20, 294, color=SKY_BLUE, size=46, text="10 C")
 
         self.pink_fire_shop = GameImage(PINK_FIRE_SHOP)
         self.pink_fire_shop.set_position(self.window.width / 2 - self.shop_screen.width / 2, 140)
         self.pink_fire_shop_b = GameImage(PINK_FIRE_SHOP_B)
         self.pink_fire_shop_b.set_position(self.window.width / 2 - self.shop_screen.width / 2, 140)
-        self.pink_text = CenterText(self.window, self.window.width / 2 + 20, 370, color=PURPLE, size=46, text="10 C")
+        self.pink_text = Text(self.window.width / 2 + 20, 370, color=PURPLE, size=46, text="10 C")
 
         self.torpedo_shop = GameImage(TORPEDO_SHOP)
         self.torpedo_shop.set_position(self.window.width / 2 - self.shop_screen.width / 2, 140)
         self.torpedo_shop_b = GameImage(TORPEDO_SHOP_B)
         self.torpedo_shop_b.set_position(self.window.width / 2 - self.shop_screen.width / 2, 140)
-        self.torpedo_text = CenterText(self.window, self.window.width / 2 + 20, 446, color=FOREST_GREEN, size=46, text="10 C")
+        self.torpedo_text = Text(self.window.width / 2 + 20, 446, color=FOREST_GREEN, size=46, text="10 C")
 
         self.torpedo_black_shop = GameImage(TORPEDO_BLACK_SHOP)
         self.torpedo_black_shop.set_position(self.window.width / 2 - self.shop_screen.width / 2, 140)
         self.torpedo_black_shop_b = GameImage(TORPEDO_BLACK_SHOP_B)
         self.torpedo_black_shop_b.set_position(self.window.width / 2 - self.shop_screen.width / 2, 140)
-        self.torpedo_black_text = CenterText(self.window, self.window.width / 2 + 20, 522, color=BLACK, size=46, text="10 C")
+        self.torpedo_black_text = Text(self.window.width / 2 + 20, 522, color=BLACK, size=46, text="10 C")
 
         self.choose_skin = [True, False, False, False]
 

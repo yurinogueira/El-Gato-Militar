@@ -1,6 +1,5 @@
-from PPlay.gameimage import GameImage
-
-from src.factory.Text import CenterText
+from pplay.gameimage import GameImage
+from pplay.text import Text
 
 from constants import *
 
@@ -21,5 +20,5 @@ class TimeHud:
         if int(seconds) == 0:
             self.window.main_scene.change_scene('City')
 
-        text = CenterText(self.window, self.window.width / 2, 46, text=int(seconds))
+        text = Text(self.window.width / 2, 46, text=int(seconds))
         text.draw()

@@ -1,4 +1,4 @@
-from PPlay.sprite import Sprite
+from pplay.sprite import Sprite
 
 from src.scenes.BattleSceneFirst import BattleSceneFirst
 

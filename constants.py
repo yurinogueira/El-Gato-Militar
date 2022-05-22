@@ -1,6 +1,6 @@
 import os
 
-from PPlay.sound import Sound
+from pplay.sound import Sound
 
 # Tuples
 WIDTH_SCREEN = 1280

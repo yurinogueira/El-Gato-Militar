@@ -1,4 +1,4 @@
-from PPlay.gameimage import GameImage
+from pplay.gameimage import GameImage
 
 from src.factory.Button import Button
 

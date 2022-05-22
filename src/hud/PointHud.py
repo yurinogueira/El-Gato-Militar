@@ -1,6 +1,5 @@
-from PPlay.gameimage import GameImage
-
-from src.factory.Text import CenterText
+from pplay.gameimage import GameImage
+from pplay.text import Text
 
 from constants import *
 
@@ -15,7 +14,7 @@ class PointHud:
 
     def draw(self):
         self.bar.draw()
-        text = CenterText(self.window, self.window.width - self.bar.width / 2 - 8, 40, text=self.points)
+        text = Text(self.window.width - self.bar.width / 2 - 8, 40, text=self.points)
         text.draw()
 
     def addPoint(self, amount):

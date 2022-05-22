@@ -1,4 +1,4 @@
-from PPlay.gameimage import *
+from pplay.gameimage import *
 
 from src.interfaces.SceneInteface import SceneInterface
 
@@ -57,4 +57,3 @@ class HomeScene(SceneInterface):
         self.cat.update()
         for p in self.listPower:
             p.update()
-
